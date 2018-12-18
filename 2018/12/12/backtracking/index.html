@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="">
+<html class="theme-next gemini use-motion" lang="">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="ljz-blog">
 <meta property="og:description" content="Backtracking(回溯算法)1. 定义回溯算法实际上一个类似枚举的搜索尝试过程，主要是在搜索尝试过程中寻找问题的解，当发现已不满足求解条件时，就“回溯”返回，尝试别的路径。回溯法是一种选优搜索法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件的某个状态的点称为“回溯点”。\wikip">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-12T09:46:14.258Z">
+<meta property="og:updated_time" content="2018-12-18T02:29:28.541Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ljz-blog">
 <meta name="twitter:description" content="Backtracking(回溯算法)1. 定义回溯算法实际上一个类似枚举的搜索尝试过程，主要是在搜索尝试过程中寻找问题的解，当发现已不满足求解条件时，就“回溯”返回，尝试别的路径。回溯法是一种选优搜索法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件的某个状态的点称为“回溯点”。\wikip">
@@ -100,7 +100,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -243,16 +243,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-sitemap">
-          <a href="/sitemap.xml" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
-            
-            Sitemap
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-commonweal">
           <a href="/404/" rel="section">
             
@@ -363,7 +353,7 @@
 
       
         <h1 id="Backtracking-回溯算法"><a href="#Backtracking-回溯算法" class="headerlink" title="Backtracking(回溯算法)"></a>Backtracking(回溯算法)</h1><h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h2><p>回溯算法实际上一个类似枚举的搜索尝试过程，主要是在搜索尝试过程中寻找问题的解，当发现已不满足求解条件时，就“回溯”返回，尝试别的路径。回溯法是一种选优搜索法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件的某个状态的点称为“回溯点”。\<br>wikipedia : <a href="https://en.wikipedia.org/wiki/Backtracking" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Backtracking</a></p>
-<h2 id="2-适用场景"><a href="#2-适用场景" class="headerlink" title="2.适用场景"></a>2.适用场景</h2><p>一般来讲，会设置一个递归函数，函数的参数会携带一些当前的可能解的信息，根据这些参数得出可能解或者不可能而回溯. \<br>可以应用的场景有：N皇后、数独、集合等。\<br>回溯算法其实是暴力求解的一种优化。      </p>
+<h2 id="2-适用场景"><a href="#2-适用场景" class="headerlink" title="2.适用场景"></a>2.适用场景</h2><p>一般来讲，会设置一个递归函数，函数的参数会携带一些当前的可能解的信息，根据这些参数得出可能解或者不可能而回溯. \<br>可以应用的场景有：N皇后、数独、集合等。\<br>回溯算法其实是暴力求解的一种优化。<br><a id="more"></a>     </p>
 <h2 id="3-算法伪码"><a href="#3-算法伪码" class="headerlink" title="3.算法伪码"></a>3.算法伪码</h2><p>来自维基百科<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">In order to apply backtracking to a specific class of problems, one must provide the data P for the particular instance of the problem that is to be solved, and six procedural parameters, root, reject, accept, first, next, and output. These procedures should take the instance data P as a parameter and should do the following:</span><br><span class="line"></span><br><span class="line">root(P): return the partial candidate at the root of the search tree.</span><br><span class="line">reject(P,c): return true only if the partial candidate c is not worth completing.</span><br><span class="line">accept(P,c): return true if c is a solution of P, and false otherwise.</span><br><span class="line">first(P,c): generate the first extension of candidate c.</span><br><span class="line">next(P,s): generate the next alternative extension of a candidate, after the extension s.</span><br><span class="line">output(P,c): use the solution c of P, as appropriate to the application.</span><br><span class="line">The backtracking algorithm reduces the problem to the call bt(root(P)), where bt is the following recursive procedure:</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">procedure bt(c)</span><br><span class="line">  <span class="keyword">if</span> reject(P,c) then <span class="keyword">return</span></span><br><span class="line">  <span class="keyword">if</span> accept(P,c) then output(P,c)</span><br><span class="line">  s ← first(P,c)</span><br><span class="line">  <span class="keyword">while</span> s ≠ NULL do</span><br><span class="line">    bt(s)</span><br><span class="line">    s ← next(P,s)</span><br></pre></td></tr></table></figure>
 <h2 id="4-例子"><a href="#4-例子" class="headerlink" title="4.例子"></a>4.例子</h2><p>leetcode 216题  <a href="https://leetcode.com/problems/combination-sum-iii/" target="_blank" rel="noopener">https://leetcode.com/problems/combination-sum-iii/</a></p>
@@ -560,7 +550,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
