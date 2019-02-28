@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="程序计数器、Java虚拟机栈、本地方法栈、Java堆、方法区 （前3个为线程私有，后2个为线程共享）  （1）程序计数器当前线程所执行的字节码的行号指示器；通过改变这个计数器的值来选取下一条需要执行的字节码指令；分支、循环、跳转、异常处理、线程恢复等功能依赖其完成；线程切换后能恢复到正确的执行位置，故每个线程需要一个独立的程序计数器，即“线程私有“ （2）Java虚拟机栈 Java Vi">
+<meta name="description" content="程序计数器、Java虚拟机栈、本地方法栈、Java堆、方法区 （前3个为线程私有，后2个为线程共享）  （1）程序计数器当前线程所执行的字节码的行号指示器；通过改变这个计数器的值来选取下一条需要执行的字节码指令；分支、循环、跳转、异常处理、线程恢复等功能依赖其完成；线程切换后能恢复到正确的执行位置，故每个线程需要一个独立的程序计数器，即“线程私有”.">
 <meta name="keywords" content="jvm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java虚拟机运行时内存区域">
 <meta property="og:url" content="http://yoursite.com/2018/12/12/jvm内存区域/index.html">
 <meta property="og:site_name" content="ljz-blog">
-<meta property="og:description" content="程序计数器、Java虚拟机栈、本地方法栈、Java堆、方法区 （前3个为线程私有，后2个为线程共享）  （1）程序计数器当前线程所执行的字节码的行号指示器；通过改变这个计数器的值来选取下一条需要执行的字节码指令；分支、循环、跳转、异常处理、线程恢复等功能依赖其完成；线程切换后能恢复到正确的执行位置，故每个线程需要一个独立的程序计数器，即“线程私有“ （2）Java虚拟机栈 Java Vi">
+<meta property="og:description" content="程序计数器、Java虚拟机栈、本地方法栈、Java堆、方法区 （前3个为线程私有，后2个为线程共享）  （1）程序计数器当前线程所执行的字节码的行号指示器；通过改变这个计数器的值来选取下一条需要执行的字节码指令；分支、循环、跳转、异常处理、线程恢复等功能依赖其完成；线程切换后能恢复到正确的执行位置，故每个线程需要一个独立的程序计数器，即“线程私有”.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-28T03:12:52.327Z">
+<meta property="og:updated_time" content="2019-02-28T03:16:39.909Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java虚拟机运行时内存区域">
-<meta name="twitter:description" content="程序计数器、Java虚拟机栈、本地方法栈、Java堆、方法区 （前3个为线程私有，后2个为线程共享）  （1）程序计数器当前线程所执行的字节码的行号指示器；通过改变这个计数器的值来选取下一条需要执行的字节码指令；分支、循环、跳转、异常处理、线程恢复等功能依赖其完成；线程切换后能恢复到正确的执行位置，故每个线程需要一个独立的程序计数器，即“线程私有“ （2）Java虚拟机栈 Java Vi">
+<meta name="twitter:description" content="程序计数器、Java虚拟机栈、本地方法栈、Java堆、方法区 （前3个为线程私有，后2个为线程共享）  （1）程序计数器当前线程所执行的字节码的行号指示器；通过改变这个计数器的值来选取下一条需要执行的字节码指令；分支、循环、跳转、异常处理、线程恢复等功能依赖其完成；线程切换后能恢复到正确的执行位置，故每个线程需要一个独立的程序计数器，即“线程私有”.">
 
 
 
@@ -386,7 +386,7 @@
         <!--# java虚拟机运行时内存区域 -->
 <p>程序计数器、Java虚拟机栈、本地方法栈、Java堆、方法区 （前3个为线程私有，后2个为线程共享）</p>
 <hr>
-<h3 id="（1）程序计数器"><a href="#（1）程序计数器" class="headerlink" title="（1）程序计数器"></a>（1）程序计数器</h3><p>当前线程所执行的字节码的行号指示器；通过改变这个计数器的值来选取下一条需要执行的字节码指令；分支、循环、跳转、异常处理、线程恢复等功能依赖其完成；线程切换后能恢复到正确的执行位置，故每个线程需要一个独立的程序计数器，即“线程私有“</p>
+<h3 id="（1）程序计数器"><a href="#（1）程序计数器" class="headerlink" title="（1）程序计数器"></a>（1）程序计数器</h3><p>当前线程所执行的字节码的行号指示器；通过改变这个计数器的值来选取下一条需要执行的字节码指令；分支、循环、跳转、异常处理、线程恢复等功能依赖其完成；线程切换后能恢复到正确的执行位置，故每个线程需要一个独立的程序计数器，即“线程私有”.<br><a id="more"></a></p>
 <h3 id="（2）Java虚拟机栈"><a href="#（2）Java虚拟机栈" class="headerlink" title="（2）Java虚拟机栈"></a>（2）Java虚拟机栈</h3><ul>
 <li>Java Virtual Machine Stacks; 也就是通常所说的“栈”；线程私有；</li>
 <li>存在数据结构–栈帧（Stack Frame）,用于存储局部变量表、操作数栈、方法出口等；局部变量表中存放了<strong>编译期可知</strong>的基本数据类型（boolean,int….）、对象引用（reference,可以理解为指向对象起始位置的引用指针，或者代表对象的句柄）</li>
@@ -410,6 +410,24 @@
 
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Li Jinzhong
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2018/12/12/jvm内存区域/" title="java虚拟机运行时内存区域">http://yoursite.com/2018/12/12/jvm内存区域/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">

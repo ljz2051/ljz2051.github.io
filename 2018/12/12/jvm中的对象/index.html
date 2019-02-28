@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="ljz-blog">
 <meta property="og:description" content="1.对象的创建（new Object） 创建过程：先检查能否在常量池中定位到一个类的符号引用，并且检查其代表的类是否被加载、解析和初始化过；若无，执行类加载过程；然后为新生对象分配内存（类加载完成后即可确定对象大小）;内存分配完后，内存空间初始化为零；接下来，对对象的类信息、类的元数据信息、对象哈希码、GC分代年龄进行设置（这些信息存放在对象头中（Object Header））；然后执行\">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-28T03:09:35.752Z">
+<meta property="og:updated_time" content="2019-02-28T03:17:28.223Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java堆上的对象">
 <meta name="twitter:description" content="1.对象的创建（new Object） 创建过程：先检查能否在常量池中定位到一个类的符号引用，并且检查其代表的类是否被加载、解析和初始化过；若无，执行类加载过程；然后为新生对象分配内存（类加载完成后即可确定对象大小）;内存分配完后，内存空间初始化为零；接下来，对对象的类信息、类的元数据信息、对象哈希码、GC分代年龄进行设置（这些信息存放在对象头中（Object Header））；然后执行\">
@@ -385,7 +385,7 @@
       
         <!--# Java堆上的对象-->
 <h2 id="1-对象的创建（new-Object）"><a href="#1-对象的创建（new-Object）" class="headerlink" title="1.对象的创建（new Object）"></a>1.对象的创建（new Object）</h2><ul>
-<li>创建过程：先检查能否在常量池中定位到一个类的符号引用，并且检查其代表的类是否被加载、解析和初始化过；若无，执行类加载过程；然后为新生对象分配内存（类加载完成后即可确定对象大小）;内存分配完后，内存空间初始化为零；接下来，对对象的类信息、类的元数据信息、对象哈希码、GC分代年龄进行设置（这些信息存放在对象头中（Object Header））；然后执行\&lt;init>方法（按照程序员的意愿进行初始化）</li>
+<li>创建过程：先检查能否在常量池中定位到一个类的符号引用，并且检查其代表的类是否被加载、解析和初始化过；若无，执行类加载过程；然后为新生对象分配内存（类加载完成后即可确定对象大小）;内存分配完后，内存空间初始化为零；接下来，对对象的类信息、类的元数据信息、对象哈希码、GC分代年龄进行设置（这些信息存放在对象头中（Object Header））；然后执行\&lt;init>方法（按照程序员的意愿进行初始化）;<a id="more"></a></li>
 <li>java堆上内存分配的两种方式：”指针碰撞“（中间一个指针作为空闲内存和用过内存的分界点）、”空闲列表“（列表记录哪些内存块可用），采用哪种方式取决于垃圾收集器是否带有压缩整理功能。 分配内存时考虑线程安全问题：CAS失败重试，或者使用本地线程分配缓冲（TLAB）(类似于ThreadLocal)<h2 id="2-对象的内存布局"><a href="#2-对象的内存布局" class="headerlink" title="2.对象的内存布局"></a>2.对象的内存布局</h2></li>
 <li>3个区域：对象头（Header）、实例数据（Instance Data）和对齐填充（Padding）.</li>
 <li>对象头； 两部分信息：第一部分用于存储对象自身的运行时数据，如哈希码、GC分代年龄、锁状态标志、线程持有锁、偏向线程ID、偏向时间戳等；另一部分是类型指针，即对象指向类元数据的指针。 如果对象是Java数组，对象头中需要记录数组长度<h2 id="3-对象的访问定位"><a href="#3-对象的访问定位" class="headerlink" title="3.对象的访问定位"></a>3.对象的访问定位</h2>通过栈上reference数据来操作，主流的访问方式两种：</li>
@@ -406,6 +406,24 @@
 
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Li Jinzhong
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2018/12/12/jvm中的对象/" title="Java堆上的对象">http://yoursite.com/2018/12/12/jvm中的对象/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
