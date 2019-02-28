@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[回溯算法（Backtracking）]]></title>
+    <url>%2F2018%2F12%2F14%2Fbacktracking%2F</url>
+    <content type="text"><![CDATA[1. 定义回溯算法实际上一个类似枚举的搜索尝试过程，主要是在搜索尝试过程中寻找问题的解，当发现已不满足求解条件时，就“回溯”返回，尝试别的路径。回溯法是一种选优搜索法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件的某个状态的点称为“回溯点”。\wikipedia : https://en.wikipedia.org/wiki/Backtracking 2.适用场景一般来讲，会设置一个递归函数，函数的参数会携带一些当前的可能解的信息，根据这些参数得出可能解或者不可能而回溯. \可以应用的场景有：N皇后、数独、集合等。\回溯算法其实是暴力求解的一种优化。 3.算法伪码来自维基百科123456789In order to apply backtracking to a specific class of problems, one must provide the data P for the particular instance of the problem that is to be solved, and six procedural parameters, root, reject, accept, first, next, and output. These procedures should take the instance data P as a parameter and should do the following:root(P): return the partial candidate at the root of the search tree.reject(P,c): return true only if the partial candidate c is not worth completing.accept(P,c): return true if c is a solution of P, and false otherwise.first(P,c): generate the first extension of candidate c.next(P,s): generate the next alternative extension of a candidate, after the extension s.output(P,c): use the solution c of P, as appropriate to the application.The backtracking algorithm reduces the problem to the call bt(root(P)), where bt is the following recursive procedure: 1234567procedure bt(c) if reject(P,c) then return if accept(P,c) then output(P,c) s ← first(P,c) while s ≠ NULL do bt(s) s ← next(P,s) 4.例子leetcode 216题 https://leetcode.com/problems/combination-sum-iii/ Find all possible combinations of k numbers that add up to a number n, given that only numbers from 1 to 9 can be used and each combination should be a unique set of numbers. \Example 1: \Input: k = 3, n = 7Output: [[1,2,4]] \Example 2: \Input: k = 3, n = 9Output: [[1,2,6], [1,3,5], [2,3,4]] BackTracking Solution:123456789101112131415161718192021222324class Solution &#123; public List&lt;List&lt;Integer&gt;&gt; combinationSum3(int k, int n) &#123; List&lt;List&lt;Integer&gt;&gt; ans = new ArrayList&lt;&gt;(); backTracing(ans, new ArrayList&lt;&gt;(), k, n, 1); return ans; &#125; private void backTracing(List&lt;List&lt;Integer&gt;&gt; ans, List&lt;Integer&gt; comb, int k, int n, int start) &#123; if (comb.size() == k &amp;&amp; n == 0) &#123; List&lt;Integer&gt; list = new ArrayList&lt;&gt;(comb); ans.add(list); return; &#125; else if (comb.size() == k || n == 0) &#123; return; &#125; else &#123; for (int i = start; i &lt;= 9 ; i++) &#123; comb.add(i); backTracing(ans, comb, k, n - i, i+1); comb.remove(comb.size() - 1); &#125; &#125; &#125; &#125;]]></content>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[二叉树DFS和BFS 递归/非递归方式]]></title>
+    <url>%2F2018%2F12%2F13%2Fdfsandbfs%2F</url>
+    <content type="text"><![CDATA[1.DFSDFS, 深度优先遍历 \（1）递归形式123456public class TreeNode &#123; int val; TreeNode left; TreeNode right; TreeNode(int x) &#123; val = x; &#125;&#125; 123456789101112List&lt;TreeNode&gt; list = new ArrayList&lt;&gt;();public List&lt;TreeNode&gt; traversal(TreeNode root) &#123; dfs(root); return list;&#125;private void dfs(TreeNode root) &#123; if (root == null) return; list.add(root); dfs(root.left); dfs(root.right);&#125; (2)非递归形式 （利用栈来递归）1234567891011121314151617public List&lt;TreeNode&gt; traversal(TreeNode root) &#123; if (root == null) return null; List&lt;TreeNode&gt; res = new ArrayList&lt;&gt;(); Stack&lt;TreeNode&gt; stack = new Stack&lt;&gt;(); stack.add(root); while(!stack.empty()) &#123; TreeNode node = stack.pop(); res.add(node); if (node.right != null) &#123; stack.push(node.right); &#125; if (node.left != null) &#123; stack.push(node.left); &#125; &#125; return res;&#125; 2.BFSBFS，广度优先遍历，对应二叉树的层级遍历 \(1)非递归形式 （利用队列实现遍历）123456789101112131415161718192021222324252627282930313233public List&lt;TreeNode&gt; traversal(TreeNode root) &#123; if (root == null) return null; return bfs(root); &#125; private List&lt;TreeNode&gt; bfs(TreeNode root) &#123; //if (root == null) return null; int curNum = 1; //维护当前层的node数量 int nextNum = 0; //维护下一层的node数量 Queue&lt;TreeNode&gt; queue = new LinkedList&lt;&gt;(); List&lt;TreeNode&gt; list = new ArrayList&lt;&gt;(); queue.offer(root); while(!queue.isEmpty()) &#123; TreeNode node = queue.poll(); list.add(node); curNum--; if (node.left != null) &#123; queue.add(node.left); nextNum++; &#125; if (node.right != null) &#123; queue.add(node.right); nextNum++; &#125; if (curNum == 0) &#123; curNum = nextNum; nextNum = 0; &#125; &#125; return list; &#125; (2)递归形式 \这里所谓的bfs递归形式，是利用dfs的递归形式，在递归过程中记录每个node的level，然后将属于一个level的node放到一list里面12345678910111213141516171819public List&lt;List&lt;TreeNode&gt;&gt; traversal(TreeNode root) &#123; if (root == null) return null; List&lt;List&lt;TreeNode&gt;&gt; list = new ArrayList&lt;&gt;(); dfs(root, 0, list); return list;&#125;private void dfs(TreeNode root, int level, List&lt;List&lt;TreeNode&gt;&gt; list) &#123; if (root == null) return; if (level &gt;= list.size()) &#123; List&lt;TreeNode&gt; subList = new ArrayList&lt;&gt;(); subList.add(root); list.add(subList); &#125; else &#123; list.get(level).add(root); &#125; dfs(root.left, level+1, list); dfs(root.right, level+1, list);&#125; 图的深度优先遍历和广度优先遍历，和二叉树的dfs、bfs原理的相同的。一般，深度优先遍历利用栈来实现（或者递归），广度优先遍历利用队列来实现。 list.add(index, element):在index处添加元素element, 原先该位置的元素和后续的元素会后移list.set(index, element):替换index处的元素，替换为element]]></content>
+      <tags>
+        <tag>算法</tag>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Java堆上的对象]]></title>
+    <url>%2F2018%2F12%2F12%2Fjvm%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1%2F</url>
+    <content type="text"><![CDATA[1.对象的创建（new Object） 创建过程：先检查能否在常量池中定位到一个类的符号引用，并且检查其代表的类是否被加载、解析和初始化过；若无，执行类加载过程；然后为新生对象分配内存（类加载完成后即可确定对象大小）;内存分配完后，内存空间初始化为零；接下来，对对象的类信息、类的元数据信息、对象哈希码、GC分代年龄进行设置（这些信息存放在对象头中（Object Header））；然后执行\&lt;init>方法（按照程序员的意愿进行初始化）; java堆上内存分配的两种方式：”指针碰撞“（中间一个指针作为空闲内存和用过内存的分界点）、”空闲列表“（列表记录哪些内存块可用），采用哪种方式取决于垃圾收集器是否带有压缩整理功能。 分配内存时考虑线程安全问题：CAS失败重试，或者使用本地线程分配缓冲（TLAB）(类似于ThreadLocal)2.对象的内存布局 3个区域：对象头（Header）、实例数据（Instance Data）和对齐填充（Padding）. 对象头； 两部分信息：第一部分用于存储对象自身的运行时数据，如哈希码、GC分代年龄、锁状态标志、线程持有锁、偏向线程ID、偏向时间戳等；另一部分是类型指针，即对象指向类元数据的指针。 如果对象是Java数组，对象头中需要记录数组长度3.对象的访问定位通过栈上reference数据来操作，主流的访问方式两种： 句柄：reference存储的是句柄地址，句柄池中的句柄包含了对象实例数据和类型数据的地址信息 直接指针访问：reference中存放的直接就是对象地址。 对比：句柄方式稳定，对象移动时，只需改变句柄中的实例数据指针，reference不用变；直接指针方式速度更快，因为节省了一次指针定位的时间开销。Sun HotSpot使用指针方式。 String.intern()是一个Native方法，作用：若字符串常量池中已经包含了一个等于String对象的字符串，则返回代表池中这个字符串的String对象；否则，将此String对象包含的字符串添加到常量池中，并且返回此String对象的引用。\StirngBuilder创建的字符串实例在Java堆上。]]></content>
+      <tags>
+        <tag>jvm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[java虚拟机运行时内存区域]]></title>
+    <url>%2F2018%2F12%2F12%2Fjvm%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%2F</url>
+    <content type="text"><![CDATA[程序计数器、Java虚拟机栈、本地方法栈、Java堆、方法区 （前3个为线程私有，后2个为线程共享） （1）程序计数器当前线程所执行的字节码的行号指示器；通过改变这个计数器的值来选取下一条需要执行的字节码指令；分支、循环、跳转、异常处理、线程恢复等功能依赖其完成；线程切换后能恢复到正确的执行位置，故每个线程需要一个独立的程序计数器，即“线程私有”. （2）Java虚拟机栈 Java Virtual Machine Stacks; 也就是通常所说的“栈”；线程私有； 存在数据结构–栈帧（Stack Frame）,用于存储局部变量表、操作数栈、方法出口等；局部变量表中存放了编译期可知的基本数据类型（boolean,int….）、对象引用（reference,可以理解为指向对象起始位置的引用指针，或者代表对象的句柄） 存在两种异常： 1）StackOverflowError(栈溢出)： 请求栈深度大于虚拟机栈深度 2）OutOfMemoryError(OOM): 动态扩展内存时，无法申请到足够的内存（3）本地方法栈与虚拟机栈作用类似；虚拟机栈为虚拟机执行Java方法服务，本地方法栈为虚拟机使用到底Native方法服务； 也会抛出StackOverflowError和OutOfMemoryError异常（4）Java堆 Java Heap；所有线程共享的一块内存区域；唯一目的：存放对象实例（对象实例和数组）； java堆是垃圾收集器管理的主要区域；一般采用分代收集算法；细分为：新生代和老年代，再细致点有Eden空间、From Survivor空间、To Survivor空间等；某些情况下，Java堆坑可能划分出多个线程私有的分配缓冲区（TLAB）； 可以通过-Xmx和-Xms控制堆大小；当堆内存无法扩展时，会抛出OOM（5）方法区 线程共享的内存区域；用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据；在HotSpot虚拟机中称为“永久代” 运行时常量池是方法区的一部分， 用于存放编译器生成的各种字面量和符号引用；运行时也可能将新的常量放入池中，例如String的intern()方法 jdk8取消了永久代，存储在永久代的部分数据就已经转移到Java Heap或者Native memory，符号引用(Symbols)转移到了native memory；字符串常量池(interned strings)转移到了Java heap；类的静态变量(class statics)转移到了Java heap;方法存放于元空间(Metaspace) 注：直接内存（Direct Memory）：不是虚拟机中的内存区域；NIO中基于通道（Channel）和缓冲区（Buffer）的IO方式，可以使用Native函数库分配对外内存，然后通过DirectByteBuffer作为引用对其操作，不会收到堆大小的限制。]]></content>
+      <tags>
+        <tag>jvm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World !!!]]></title>
+    <url>%2F2018%2F12%2F10%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[很早之前就想搭一个自己的博客，一直没有搞～ 之前写的一些文章，就直接放到了CSDN上。 最近看到了一个比较棒的博客，心里瞬间觉得自己也想搞一个。之后应该会陆续把一部分原先的文章迁过来，也会不定时更新一些新的技术文章，或者个人总结。 千里之行，始于足下～ 希望自己能够一直坚持下去～ 如果大家对我的博客有什么意见或者建议的话，欢迎通过邮箱lijinzhong2051@163.com联系我～]]></content>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+</search>
