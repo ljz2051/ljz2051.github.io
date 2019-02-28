@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="算法,数据结构,">
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="二叉树DFS和BFS 递归/非递归方式1.DFSDFS, 深度优先遍历 \（1）递归形式123456public class TreeNode &amp;#123;    int val;    TreeNode left;    TreeNode right;    TreeNode(int x) &amp;#123; val = x; &amp;#125;&amp;#125; 123456789101112List&amp;lt;">
-<meta name="keywords" content="lijinzhong ljz">
+<meta name="description" content="1.DFSDFS, 深度优先遍历 \（1）递归形式123456public class TreeNode &amp;#123;    int val;    TreeNode left;    TreeNode right;    TreeNode(int x) &amp;#123; val = x; &amp;#125;&amp;#125;">
+<meta name="keywords" content="算法,数据结构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ljz-blog">
-<meta property="og:url" content="http://yoursite.com/2018/12/12/dfsandbfs/index.html">
+<meta property="og:title" content="二叉树DFS和BFS 递归&#x2F;非递归方式">
+<meta property="og:url" content="http://yoursite.com/2018/12/13/dfsandbfs/index.html">
 <meta property="og:site_name" content="ljz-blog">
-<meta property="og:description" content="二叉树DFS和BFS 递归/非递归方式1.DFSDFS, 深度优先遍历 \（1）递归形式123456public class TreeNode &amp;#123;    int val;    TreeNode left;    TreeNode right;    TreeNode(int x) &amp;#123; val = x; &amp;#125;&amp;#125; 123456789101112List&amp;lt;">
+<meta property="og:description" content="1.DFSDFS, 深度优先遍历 \（1）递归形式123456public class TreeNode &amp;#123;    int val;    TreeNode left;    TreeNode right;    TreeNode(int x) &amp;#123; val = x; &amp;#125;&amp;#125;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-12T07:43:59.421Z">
+<meta property="og:updated_time" content="2019-02-28T02:54:12.304Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ljz-blog">
-<meta name="twitter:description" content="二叉树DFS和BFS 递归/非递归方式1.DFSDFS, 深度优先遍历 \（1）递归形式123456public class TreeNode &amp;#123;    int val;    TreeNode left;    TreeNode right;    TreeNode(int x) &amp;#123; val = x; &amp;#125;&amp;#125; 123456789101112List&amp;lt;">
+<meta name="twitter:title" content="二叉树DFS和BFS 递归&#x2F;非递归方式">
+<meta name="twitter:description" content="1.DFSDFS, 深度优先遍历 \（1）递归形式123456public class TreeNode &amp;#123;    int val;    TreeNode left;    TreeNode right;    TreeNode(int x) &amp;#123; val = x; &amp;#125;&amp;#125;">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/12/12/dfsandbfs/">
+  <link rel="canonical" href="http://yoursite.com/2018/12/13/dfsandbfs/">
 
 
 
 
 
-  <title> | ljz-blog</title>
+  <title>二叉树DFS和BFS 递归/非递归方式 | ljz-blog</title>
   
 
 
@@ -285,7 +285,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/12/dfsandbfs/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/13/dfsandbfs/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Li Jinzhong">
@@ -302,7 +302,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">二叉树DFS和BFS 递归/非递归方式</h1>
         
 
         <div class="post-meta">
@@ -314,8 +314,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-12T15:43:59+08:00">
-                2018-12-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-13T09:35:23+08:00">
+                2018-12-13
               </time>
             
 
@@ -346,7 +346,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  575
+                  563
                 </span>
               
 
@@ -383,7 +383,9 @@
       
 
       
-        <h1 id="二叉树DFS和BFS-递归-非递归方式"><a href="#二叉树DFS和BFS-递归-非递归方式" class="headerlink" title="二叉树DFS和BFS 递归/非递归方式"></a>二叉树DFS和BFS 递归/非递归方式</h1><h2 id="1-DFS"><a href="#1-DFS" class="headerlink" title="1.DFS"></a>1.DFS</h2><p>DFS, 深度优先遍历 \<br>（1）递归形式<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    TreeNode left;</span><br><span class="line">    TreeNode right;</span><br><span class="line">    TreeNode(<span class="keyword">int</span> x) &#123; val = x; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <!-- # 二叉树DFS和BFS 递归/非递归方式-->
+<h2 id="1-DFS"><a href="#1-DFS" class="headerlink" title="1.DFS"></a>1.DFS</h2><p>DFS, 深度优先遍历 \<br>（1）递归形式<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    TreeNode left;</span><br><span class="line">    TreeNode right;</span><br><span class="line">    TreeNode(<span class="keyword">int</span> x) &#123; val = x; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">List&lt;TreeNode&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;TreeNode&gt; <span class="title">traversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    dfs(root);</span><br><span class="line">    <span class="keyword">return</span> list;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">    list.add(root);</span><br><span class="line">    dfs(root.left);</span><br><span class="line">    dfs(root.right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>(2)非递归形式 （利用栈来递归）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;TreeNode&gt; <span class="title">traversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    List&lt;TreeNode&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    stack.add(root);</span><br><span class="line">    <span class="keyword">while</span>(!stack.empty()) &#123;</span><br><span class="line">        TreeNode node = stack.pop();</span><br><span class="line">        res.add(node);</span><br><span class="line">        <span class="keyword">if</span> (node.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">            stack.push(node.right);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (node.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">            stack.push(node.left);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="2-BFS"><a href="#2-BFS" class="headerlink" title="2.BFS"></a>2.BFS</h2><p>BFS，广度优先遍历，对应二叉树的层级遍历 \<br>(1)非递归形式 （利用队列实现遍历）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;TreeNode&gt; <span class="title">traversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">return</span> bfs(root);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> List&lt;TreeNode&gt; <span class="title">bfs</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//if (root == null) return null;</span></span><br><span class="line">        <span class="keyword">int</span> curNum = <span class="number">1</span>;   <span class="comment">//维护当前层的node数量</span></span><br><span class="line">        <span class="keyword">int</span> nextNum = <span class="number">0</span>;  <span class="comment">//维护下一层的node数量</span></span><br><span class="line">        Queue&lt;TreeNode&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        List&lt;TreeNode&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        queue.offer(root);</span><br><span class="line">        <span class="keyword">while</span>(!queue.isEmpty()) &#123;</span><br><span class="line">            TreeNode node = queue.poll();</span><br><span class="line">            list.add(node);</span><br><span class="line">            curNum--;</span><br><span class="line">            <span class="keyword">if</span> (node.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">                queue.add(node.left);</span><br><span class="line">                nextNum++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (node.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">                queue.add(node.right);</span><br><span class="line">                nextNum++;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (curNum == <span class="number">0</span>) &#123;</span><br><span class="line">                curNum = nextNum;</span><br><span class="line">                nextNum = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
@@ -405,6 +407,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+          
+        </div>
+      
 
       
       
@@ -414,8 +424,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/12/ljz/" rel="next" title="ljz">
-                <i class="fa fa-chevron-left"></i> ljz
+              <a href="/2018/12/12/jvm中的对象/" rel="next" title="Java堆上的对象">
+                <i class="fa fa-chevron-left"></i> Java堆上的对象
               </a>
             
           </div>
@@ -505,7 +515,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -518,7 +528,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/about/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -562,7 +572,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#二叉树DFS和BFS-递归-非递归方式"><span class="nav-number">1.</span> <span class="nav-text">二叉树DFS和BFS 递归/非递归方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-DFS"><span class="nav-number">1.1.</span> <span class="nav-text">1.DFS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-BFS"><span class="nav-number">1.2.</span> <span class="nav-text">2.BFS</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-DFS"><span class="nav-number">1.</span> <span class="nav-text">1.DFS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-BFS"><span class="nav-number">2.</span> <span class="nav-text">2.BFS</span></a></li></ol></div>
             
 
           </div>

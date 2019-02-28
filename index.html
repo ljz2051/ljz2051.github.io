@@ -348,7 +348,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  661
+                  656
                 </span>
               
 
@@ -386,8 +386,8 @@
 
       
         
-          <h1 id="Backtracking-回溯算法"><a href="#Backtracking-回溯算法" class="headerlink" title="Backtracking(回溯算法)"></a>Backtracking(回溯算法)</h1><h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h2><p>回溯算法实际上一个类似枚举的搜索尝试过程，主要是在搜索尝试过程中寻找问题的解，当发现已不满足求解条件时，就“回溯”返回，尝试别的路径。回溯法是一种选优搜索法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件的某个状态的点称为“回溯点”。\<br>wikipedia : <a href="https://en.wikipedia.org/wiki/Backtracking" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Backtracking</a></p>
-<h2 id="2-适用场景"><a href="#2-适用场景" class="headerlink" title="2.适用场景"></a>2.适用场景</h2><p>一般来讲，会设置一个递归函数，函数的参数会携带一些当前的可能解的信息，根据这些参数得出可能解或者不可能而回溯. \<br>可以应用的场景有：N皇后、数独、集合等。\<br>回溯算法其实是暴力求解的一种优化。<br>
+          <!-- # Backtracking(回溯算法)-->
+<h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h2><p>回溯算法实际上一个类似枚举的搜索尝试过程，主要是在搜索尝试过程中寻找问题的解，当发现已不满足求解条件时，就“回溯”返回，尝试别的路径。回溯法是一种选优搜索法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件的某个状态的点称为“回溯点”。\<br>wikipedia : <a href="https://en.wikipedia.org/wiki/Backtracking" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Backtracking</a><br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/12/14/backtracking/#more" rel="contents">
@@ -441,7 +441,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/12/dfsandbfs/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/13/dfsandbfs/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Li Jinzhong">
@@ -460,7 +460,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/12/dfsandbfs/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2018/12/13/dfsandbfs/" itemprop="url">二叉树DFS和BFS 递归/非递归方式</a></h1>
         
 
         <div class="post-meta">
@@ -472,7 +472,163 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-12T15:43:59+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-13T09:35:23+08:00">
+                2018-12-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  563
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <!-- # 二叉树DFS和BFS 递归/非递归方式-->
+<h2 id="1-DFS"><a href="#1-DFS" class="headerlink" title="1.DFS"></a>1.DFS</h2><p>DFS, 深度优先遍历 \<br>（1）递归形式<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    TreeNode left;</span><br><span class="line">    TreeNode right;</span><br><span class="line">    TreeNode(<span class="keyword">int</span> x) &#123; val = x; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/13/dfsandbfs/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/12/jvm中的对象/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Jinzhong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ljz-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/12/jvm中的对象/" itemprop="url">Java堆上的对象</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-12T15:42:53+08:00">
                 2018-12-12
               </time>
             
@@ -504,7 +660,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  575
+                  645
                 </span>
               
 
@@ -543,13 +699,18 @@
       
         
           
-            <h1 id="二叉树DFS和BFS-递归-非递归方式"><a href="#二叉树DFS和BFS-递归-非递归方式" class="headerlink" title="二叉树DFS和BFS 递归/非递归方式"></a>二叉树DFS和BFS 递归/非递归方式</h1><h2 id="1-DFS"><a href="#1-DFS" class="headerlink" title="1.DFS"></a>1.DFS</h2><p>DFS, 深度优先遍历 \<br>（1）递归形式<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    TreeNode left;</span><br><span class="line">    TreeNode right;</span><br><span class="line">    TreeNode(<span class="keyword">int</span> x) &#123; val = x; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">List&lt;TreeNode&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;TreeNode&gt; <span class="title">traversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    dfs(root);</span><br><span class="line">    <span class="keyword">return</span> list;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">    list.add(root);</span><br><span class="line">    dfs(root.left);</span><br><span class="line">    dfs(root.right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>(2)非递归形式 （利用栈来递归）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;TreeNode&gt; <span class="title">traversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    List&lt;TreeNode&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    stack.add(root);</span><br><span class="line">    <span class="keyword">while</span>(!stack.empty()) &#123;</span><br><span class="line">        TreeNode node = stack.pop();</span><br><span class="line">        res.add(node);</span><br><span class="line">        <span class="keyword">if</span> (node.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">            stack.push(node.right);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (node.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">            stack.push(node.left);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="2-BFS"><a href="#2-BFS" class="headerlink" title="2.BFS"></a>2.BFS</h2><p>BFS，广度优先遍历，对应二叉树的层级遍历 \<br>(1)非递归形式 （利用队列实现遍历）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;TreeNode&gt; <span class="title">traversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">return</span> bfs(root);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> List&lt;TreeNode&gt; <span class="title">bfs</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//if (root == null) return null;</span></span><br><span class="line">        <span class="keyword">int</span> curNum = <span class="number">1</span>;   <span class="comment">//维护当前层的node数量</span></span><br><span class="line">        <span class="keyword">int</span> nextNum = <span class="number">0</span>;  <span class="comment">//维护下一层的node数量</span></span><br><span class="line">        Queue&lt;TreeNode&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        List&lt;TreeNode&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        queue.offer(root);</span><br><span class="line">        <span class="keyword">while</span>(!queue.isEmpty()) &#123;</span><br><span class="line">            TreeNode node = queue.poll();</span><br><span class="line">            list.add(node);</span><br><span class="line">            curNum--;</span><br><span class="line">            <span class="keyword">if</span> (node.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">                queue.add(node.left);</span><br><span class="line">                nextNum++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (node.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">                queue.add(node.right);</span><br><span class="line">                nextNum++;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (curNum == <span class="number">0</span>) &#123;</span><br><span class="line">                curNum = nextNum;</span><br><span class="line">                nextNum = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p>(2)递归形式 \<br>这里所谓的bfs递归形式，是利用dfs的递归形式，在递归过程中记录每个node的level，然后将属于一个level的node放到一list里面<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;List&lt;TreeNode&gt;&gt; traversal(TreeNode root) &#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    List&lt;List&lt;TreeNode&gt;&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    dfs(root, <span class="number">0</span>, list);</span><br><span class="line">    <span class="keyword">return</span> list;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(TreeNode root, <span class="keyword">int</span> level, List&lt;List&lt;TreeNode&gt;&gt; list)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span> (level &gt;= list.size()) &#123;</span><br><span class="line">        List&lt;TreeNode&gt; subList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        subList.add(root);</span><br><span class="line">        list.add(subList);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        list.get(level).add(root);</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(root.left, level+<span class="number">1</span>, list);</span><br><span class="line">    dfs(root.right, level+<span class="number">1</span>, list);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><hr><br>图的深度优先遍历和广度优先遍历，和二叉树的dfs、bfs原理的相同的。一般，深度优先遍历利用栈来实现（或者递归），广度优先遍历利用队列来实现。</p>
-<p>list.add(index, element):在index处添加元素element, 原先该位置的元素和后续的元素会后移<br>list.set(index, element):替换index处的元素，替换为element</p>
+            <!--# Java堆上的对象-->
+<h2 id="1-对象的创建（new-Object）"><a href="#1-对象的创建（new-Object）" class="headerlink" title="1.对象的创建（new Object）"></a>1.对象的创建（new Object）</h2><ul>
+<li>创建过程：先检查能否在常量池中定位到一个类的符号引用，并且检查其代表的类是否被加载、解析和初始化过；若无，执行类加载过程；然后为新生对象分配内存（类加载完成后即可确定对象大小）;内存分配完后，内存空间初始化为零；接下来，对对象的类信息、类的元数据信息、对象哈希码、GC分代年龄进行设置（这些信息存放在对象头中（Object Header））；然后执行\&lt;init>方法（按照程序员的意愿进行初始化）</li>
+<li>java堆上内存分配的两种方式：”指针碰撞“（中间一个指针作为空闲内存和用过内存的分界点）、”空闲列表“（列表记录哪些内存块可用），采用哪种方式取决于垃圾收集器是否带有压缩整理功能。 分配内存时考虑线程安全问题：CAS失败重试，或者使用本地线程分配缓冲（TLAB）(类似于ThreadLocal)<h2 id="2-对象的内存布局"><a href="#2-对象的内存布局" class="headerlink" title="2.对象的内存布局"></a>2.对象的内存布局</h2></li>
+<li>3个区域：对象头（Header）、实例数据（Instance Data）和对齐填充（Padding）.</li>
+<li>对象头； 两部分信息：第一部分用于存储对象自身的运行时数据，如哈希码、GC分代年龄、锁状态标志、线程持有锁、偏向线程ID、偏向时间戳等；另一部分是类型指针，即对象指向类元数据的指针。 如果对象是Java数组，对象头中需要记录数组长度<h2 id="3-对象的访问定位"><a href="#3-对象的访问定位" class="headerlink" title="3.对象的访问定位"></a>3.对象的访问定位</h2>通过栈上reference数据来操作，主流的访问方式两种：</li>
+<li>句柄：reference存储的是句柄地址，句柄池中的句柄包含了对象实例数据和类型数据的地址信息</li>
+<li>直接指针访问：reference中存放的直接就是对象地址。</li>
+<li>对比：句柄方式稳定，对象移动时，只需改变句柄中的实例数据指针，reference不用变；直接指针方式速度更快，因为节省了一次指针定位的时间开销。Sun HotSpot使用指针方式。</li>
+</ul>
+<hr>
+<p>String.intern()是一个Native方法，作用：若字符串常量池中已经包含了一个等于String对象的字符串，则返回代表池中这个字符串的String对象；否则，将此String对象包含的字符串添加到常量池中，并且返回此String对象的引用。\<br>StirngBuilder创建的字符串实例在Java堆上。</p>
 
           
         
@@ -598,7 +759,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/12/ljz/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/10/hello-world/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Li Jinzhong">
@@ -617,7 +778,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/12/ljz/" itemprop="url">ljz</a></h1>
+                <a class="post-title-link" href="/2018/12/10/hello-world/" itemprop="url">Hello World !!!</a></h1>
         
 
         <div class="post-meta">
@@ -629,8 +790,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-12T15:42:13+08:00">
-                2018-12-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-10T08:43:34+08:00">
+                2018-12-10
               </time>
             
 
@@ -661,7 +822,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  153
                 </span>
               
 
@@ -699,317 +860,19 @@
 
       
         
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/12/test-my-site/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Li Jinzhong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ljz-blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/12/test-my-site/" itemprop="url">test_my_site</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-12T15:24:19+08:00">
-                2018-12-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  0
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/11/hello-world/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Li Jinzhong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ljz-blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/11/hello-world/" itemprop="url">Hello World !!!</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-11T12:04:19+08:00">
-                2018-12-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  155
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World !!!"></a>Hello World !!!</h1><p>很早之前就想搭一个自己的博客，一直没有搞～ 之前写的一些文章，就直接放到了CSDN上。  最近看到了一个比较棒的博客，心里瞬间觉得自己也想搞一个。之后应该会陆续把一部分原先的文章迁过来，也会不定时更新一些新的技术文章，或者个人总结。<br>
+          <!-- # Hello World !!!-->
+<p>很早之前就想搭一个自己的博客，一直没有搞～ 之前写的一些文章，就直接放到了CSDN上。  最近看到了一个比较棒的博客，心里瞬间觉得自己也想搞一个。之后应该会陆续把一部分原先的文章迁过来，也会不定时更新一些新的技术文章，或者个人总结。</p>
+<p>千里之行，始于足下～ 希望自己能够一直坚持下去～</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/12/11/hello-world/#more" rel="contents">
+            <a class="btn" href="/2018/12/10/hello-world/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
         
       
-    </p></div>
+    </div>
     
     
     
@@ -1088,7 +951,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1101,7 +964,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/about/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
