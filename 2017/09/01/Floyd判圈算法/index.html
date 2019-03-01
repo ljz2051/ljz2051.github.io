@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="算法,">
 
 
 
@@ -88,17 +88,20 @@
 
 
 
-<meta name="description" content="If you want something, just fight for it !">
-<meta name="keywords" content="lijinzhong ljz">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ljz-blog">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+<meta name="description" content="###1. 什么是Floyd判圈算法？Floyd判圈算法(Floyd Cycle Detection Algorithm)，又称龟兔赛跑算法(Tortoise and Hare Algorithm)，是一个可以在有限状态机、迭代函数或者链表上判断是否存在环，求出该环的起点与长度的算法。  ###2. 算法描述如果有限状态机、迭代函数或者链表上存在环，那么在某个环上以不同速度前进的2个指针必定会">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Floyd&#39;s Cycle Detection Algorithm（Floyd判圈算法）">
+<meta property="og:url" content="http://yoursite.com/2017/09/01/Floyd判圈算法/index.html">
 <meta property="og:site_name" content="ljz-blog">
-<meta property="og:description" content="If you want something, just fight for it !">
+<meta property="og:description" content="###1. 什么是Floyd判圈算法？Floyd判圈算法(Floyd Cycle Detection Algorithm)，又称龟兔赛跑算法(Tortoise and Hare Algorithm)，是一个可以在有限状态机、迭代函数或者链表上判断是否存在环，求出该环的起点与长度的算法。  ###2. 算法描述如果有限状态机、迭代函数或者链表上存在环，那么在某个环上以不同速度前进的2个指针必定会">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.blog.csdn.net/20170901160426538?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbDk0NzA2OTk2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2019-03-01T01:59:34.458Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ljz-blog">
-<meta name="twitter:description" content="If you want something, just fight for it !">
+<meta name="twitter:title" content="Floyd&#39;s Cycle Detection Algorithm（Floyd判圈算法）">
+<meta name="twitter:description" content="###1. 什么是Floyd判圈算法？Floyd判圈算法(Floyd Cycle Detection Algorithm)，又称龟兔赛跑算法(Tortoise and Hare Algorithm)，是一个可以在有限状态机、迭代函数或者链表上判断是否存在环，求出该环的起点与长度的算法。  ###2. 算法描述如果有限状态机、迭代函数或者链表上存在环，那么在某个环上以不同速度前进的2个指针必定会">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170901160426538?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbDk0NzA2OTk2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
 
@@ -128,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2018/">
+  <link rel="canonical" href="http://yoursite.com/2017/09/01/Floyd判圈算法/">
 
 
 
 
 
-  <title>归档 | ljz-blog</title>
+  <title>Floyd's Cycle Detection Algorithm（Floyd判圈算法） | ljz-blog</title>
   
 
 
@@ -153,7 +156,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -299,177 +302,230 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/01/Floyd判圈算法/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Jinzhong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ljz-blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Floyd's Cycle Detection Algorithm（Floyd判圈算法）</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-01T16:37:08+08:00">
+                2017-09-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 11 篇日志。 继续努力。
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/14/backtracking/" itemprop="url">
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">回溯算法（Backtracking）</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.5k
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-14T15:12:12+08:00" content="2018-12-14">
-          12-14
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/13/dfsandbfs/" itemprop="url">
-              
-                <span itemprop="name">二叉树DFS和BFS 递归/非递归方式</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-13T09:35:23+08:00" content="2018-12-13">
-          12-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/12/jvm中的对象/" itemprop="url">
-              
-                <span itemprop="name">Java堆上的对象</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-12T15:42:53+08:00" content="2018-12-12">
-          12-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <!-- #Floyd判圈算法-->
+<hr>
+<p>###<strong>1. 什么是Floyd判圈算法？</strong><br>Floyd判圈算法(Floyd Cycle Detection Algorithm)，又称龟兔赛跑算法(Tortoise and Hare Algorithm)，是一个可以在有限状态机、迭代函数或者链表上判断是否存在环，求出该环的起点与长度的算法。</p>
+<hr>
+<p>###<strong>2. 算法描述</strong><br>如果有限状态机、迭代函数或者链表上存在环，那么在某个环上以不同速度前进的2个指针必定会在某个时刻相遇。同时显然地，如果从同一个起点(即使这个起点不在某个环上)同时开始以不同速度前进的2个指针最终相遇，那么可以判定存在一个环，且可以求出2者相遇处所在的环的起点与长度。<br><a id="more"></a></p>
+<p>Floyd Cycle Detection Algorithm主要解决三个问题：</p>
+<ol>
+<li>检测是否有环；</li>
+<li>如果有环，求环的起点； </li>
+<li>如果有环，求环的长度；<br>####<strong>(1)检测是否有环</strong><br>基本思想：<br>这个可以用跑步来解释，假设两个人从同一起点出发（不从同一起点也可以），以不同的速度向前跑，最终快的人一定会追上慢的人（套圈）。可以将速度快的人换做兔子，速度慢的人换做乌龟，就变成龟兔赛跑了，23333…….</li>
+</ol>
+<p>基于上述思想，我们可以这样检测是否有环：<br>初始状态下，假设起点为S。现设两个指针t和h，将它们均指向S。接着，让t和h同时以不同的速度向前推进：t速度为v，h速度为2v。当h无法向前推进时，即可确定没有环；如果t与h相遇，则可以确定有环。（注意，起点不一定在环上。）</p>
+<p>####<strong>（2）如果有环，求环的起点；</strong><br>基本思想：<br>在上述算法判断出存在环时，显然t和h在同一位置。此时，只要令h仍位于原来的位置M，而令t返回起点S，此时h与t之间距为环C长度的整数倍。随后，同时让t和h以相同的速度往前推进：即t每前进1步，h前进1步。持续该过程直至t与h再一次相遇，此相遇地点即为环C的一个起点P。</p>
+<p>很多小伙伴看到这儿会很困惑，为毛是这样呢？我们可以用图来解释一下。<br><img src="http://img.blog.csdn.net/20170901160426538?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbDk0NzA2OTk2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>已经确定有环，设起点到环的起点距离为m，环的周长为n，第一次相遇时距离环的起点的距离为k，第一次相遇时慢指针在环上转了a圈，快指针在环上转了b圈。（这里假定h的速度是t速度的2倍）<br>两者第一次相遇时，慢指针移动的距离i为： i = m + a<em>n + k; 快指针速度是慢指针速度的2倍，故快指针移动的距离2i为： 2i = m + b</em>n + k。两者相减得，i = (b-a)*n，即i是环长度的倍数。此时，按上述算法，令慢指针返回起点，两个指针均以慢指针的速度同时向前推进。当慢指针推进m时，会到达环的起点，此时快指针移动的总距离为 2i+m。考虑这个 2i+m，可以理解为从起点走m，到达环起点，然后走了整数倍的环长度，故最终快指针也会到达环起点（即快慢指指针在环起点相遇）。</p>
+<p>####<strong>（3）如果有环，求环的长度；</strong><br>基本思想：<br>这个相对来说比较简单。只需要在快慢指针相遇时，保持一个指针不动，让另外一个指针向前推进，记录其步数。当两个指针再次相遇时，第二个指针推进的步数，即为环的长度。</p>
+<hr>
+<p>###<strong>3. 算法实现</strong><br>这里引用一个维基上的python的算法实现，其他语言的也类似。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">floyd</span><span class="params">(f, x0)</span>:</span></span><br><span class="line">    <span class="comment"># Main phase of algorithm: finding a repetition x_i = x_2i.</span></span><br><span class="line">    <span class="comment"># The hare moves twice as quickly as the tortoise and</span></span><br><span class="line">    <span class="comment"># the distance between them increases by 1 at each step.</span></span><br><span class="line">    <span class="comment"># Eventually they will both be inside the cycle and then,</span></span><br><span class="line">    <span class="comment"># at some point, the distance between them will be</span></span><br><span class="line">    <span class="comment"># divisible by the period λ.</span></span><br><span class="line">    tortoise = f(x0) <span class="comment"># f(x0) is the element/node next to x0.</span></span><br><span class="line">    hare = f(f(x0))</span><br><span class="line">    <span class="keyword">while</span> tortoise != hare:</span><br><span class="line">        tortoise = f(tortoise)</span><br><span class="line">        hare = f(f(hare))</span><br><span class="line">  </span><br><span class="line">    <span class="comment"># At this point the tortoise position, ν, which is also equal</span></span><br><span class="line">    <span class="comment"># to the distance between hare and tortoise, is divisible by</span></span><br><span class="line">    <span class="comment"># the period λ. So hare moving in circle one step at a time, </span></span><br><span class="line">    <span class="comment"># and tortoise (reset to x0) moving towards the circle, will </span></span><br><span class="line">    <span class="comment"># intersect at the beginning of the circle. Because the </span></span><br><span class="line">    <span class="comment"># distance between them is constant at 2ν, a multiple of λ,</span></span><br><span class="line">    <span class="comment"># they will agree as soon as the tortoise reaches index μ.</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Find the position μ of first repetition.    </span></span><br><span class="line">    mu = <span class="number">0</span></span><br><span class="line">    tortoise = x0</span><br><span class="line">    <span class="keyword">while</span> tortoise != hare:</span><br><span class="line">        tortoise = f(tortoise)</span><br><span class="line">        hare = f(hare)   <span class="comment"># Hare and tortoise move at same speed</span></span><br><span class="line">        mu += <span class="number">1</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment"># Find the length of the shortest cycle starting from x_μ</span></span><br><span class="line">    <span class="comment"># The hare moves one step at a time while tortoise is still.</span></span><br><span class="line">    <span class="comment"># lam is incremented until λ is found.</span></span><br><span class="line">    lam = <span class="number">1</span></span><br><span class="line">    hare = f(tortoise)</span><br><span class="line">    <span class="keyword">while</span> tortoise != hare:</span><br><span class="line">        hare = f(hare)</span><br><span class="line">        lam += <span class="number">1</span></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> lam, mu</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>###<strong>4. 算法复杂度</strong><br>时间复杂度:</p>
+<p>注意到当指针t到达环C的起点时(此时指针h显然在环C上)，之后指针t最多仅可能走1圈。若设起点S到环起点P距离为 m，环C的长度为 n，则时间复杂度为O(m+n)，是线性时间的算法。</p>
+<p>空间复杂度：</p>
+<p>仅需要创立指针t、指针h，保存环长n、环的一个起点P。空间复杂度为 O(1)，是常数空间的算法。</p>
+<p>最后，说一下，大多数情况下，判断是否有环的问题，也可以用HashSet来实现，即每次用HashSet记录出现过的节点，当一个节点重复出现时，即可判断存在环。HashSet这种方法的空间复杂度为O(n), 故从空间复杂度的角度考虑，Floyd判圈算法要优于HashSet这种方法。</p>
+<hr>
+<p>参考资料：</p>
+<ol>
+<li><a href="https://en.wikipedia.org/wiki/Cycle_detection#Tortoise_and_hare" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Cycle_detection#Tortoise_and_hare</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/Floyd%E5%88%A4%E5%9C%88%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/Floyd%E5%88%A4%E5%9C%88%E7%AE%97%E6%B3%95</a></li>
+<li><a href="https://stackoverflow.com/questions/2936213/explain-how-finding-cycle-start-node-in-cycle-linked-list-work" target="_blank" rel="noopener">https://stackoverflow.com/questions/2936213/explain-how-finding-cycle-start-node-in-cycle-linked-list-work</a></li>
+</ol>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/12/jvm内存区域/" itemprop="url">
-              
-                <span itemprop="name">java虚拟机运行时内存区域</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-12T10:24:19+08:00" content="2018-12-12">
-          12-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Li Jinzhong
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2017/09/01/Floyd判圈算法/" title="Floyd's Cycle Detection Algorithm（Floyd判圈算法）">http://yoursite.com/2017/09/01/Floyd判圈算法/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/28/前缀树/" rel="next" title="Trie(Prefix Tree)前缀树">
+                <i class="fa fa-chevron-left"></i> Trie(Prefix Tree)前缀树
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/23/ConcurrentModificationException/" rel="prev" title="ConcurrentModificationException和fail-fast机制">
+                ConcurrentModificationException和fail-fast机制 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -477,6 +533,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -711,6 +771,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

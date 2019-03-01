@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="java,">
 
 
 
@@ -88,17 +88,18 @@
 
 
 
-<meta name="description" content="If you want something, just fight for it !">
-<meta name="keywords" content="lijinzhong ljz">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ljz-blog">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+<meta name="description" content="Java中，涉及到两个对象的比较时，我们会用到hashCode()和equals()。这两个方法是Object类中定义的方法。  ###1. api中的描述(1)hashCode()hashCode()方法给对象返回一个hash code值。这个方法被用于hash tables，例如HashMap。它的性质是：">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 中hashCode()和equals()方法">
+<meta property="og:url" content="http://yoursite.com/2017/09/25/hashCodeAndEquals/index.html">
 <meta property="og:site_name" content="ljz-blog">
-<meta property="og:description" content="If you want something, just fight for it !">
+<meta property="og:description" content="Java中，涉及到两个对象的比较时，我们会用到hashCode()和equals()。这两个方法是Object类中定义的方法。  ###1. api中的描述(1)hashCode()hashCode()方法给对象返回一个hash code值。这个方法被用于hash tables，例如HashMap。它的性质是：">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-01T02:05:06.139Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ljz-blog">
-<meta name="twitter:description" content="If you want something, just fight for it !">
+<meta name="twitter:title" content="Java 中hashCode()和equals()方法">
+<meta name="twitter:description" content="Java中，涉及到两个对象的比较时，我们会用到hashCode()和equals()。这两个方法是Object类中定义的方法。  ###1. api中的描述(1)hashCode()hashCode()方法给对象返回一个hash code值。这个方法被用于hash tables，例如HashMap。它的性质是：">
 
 
 
@@ -128,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2018/">
+  <link rel="canonical" href="http://yoursite.com/2017/09/25/hashCodeAndEquals/">
 
 
 
 
 
-  <title>归档 | ljz-blog</title>
+  <title>Java 中hashCode()和equals()方法 | ljz-blog</title>
   
 
 
@@ -153,7 +154,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -299,177 +300,241 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/25/hashCodeAndEquals/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Jinzhong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ljz-blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Java 中hashCode()和equals()方法</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-25T00:46:43+08:00">
+                2017-09-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 11 篇日志。 继续努力。
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/14/backtracking/" itemprop="url">
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">回溯算法（Backtracking）</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.3k
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-14T15:12:12+08:00" content="2018-12-14">
-          12-14
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/13/dfsandbfs/" itemprop="url">
-              
-                <span itemprop="name">二叉树DFS和BFS 递归/非递归方式</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-13T09:35:23+08:00" content="2018-12-13">
-          12-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/12/jvm中的对象/" itemprop="url">
-              
-                <span itemprop="name">Java堆上的对象</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-12T15:42:53+08:00" content="2018-12-12">
-          12-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>Java中，涉及到两个对象的比较时，我们会用到hashCode()和equals()。这两个方法是Object类中定义的方法。</p>
+<hr>
+<p>###<strong>1. api中的描述</strong><br>(1)hashCode()<br>hashCode()方法给对象返回一个hash code值。这个方法被用于hash tables，例如HashMap。<br>它的性质是：<br><a id="more"></a></p>
+<ul>
+<li>在一个Java应用的执行期间，如果一个对象提供给equals做比较的信息没有被修改的话，该对象多次调用hashCode()方法，该方法必须始终如一返回同一个integer。</li>
+<li>如果两个对象根据equals(Object)方法是相等的，那么调用二者各自的hashCode()方法必须产生同一个integer结果。</li>
+<li>并不要求根据equals(java.lang.Object)方法不相等的两个对象，调用二者各自的hashCode()方法必须产生不同的integer结果。然而，程序员应该意识到对于不同的对象产生不同的integer结果，有可能会提高hash table的性能。</li>
+</ul>
+<p>大量的实践表明，由Object类定义的hashCode()方法对于不同的对象返回不同的integer。</p>
+<p>(2)equals()<br>equals()进行的内容比较，而已经不再是地址的比较。依次类推Math、Integer、Double等这些类都是重写了equals()方法的，从而进行的是内容的比较。当然，基本类型是进行值的比较。</p>
+<p>它的性质有：</p>
+<ul>
+<li>自反性（reflexive）。对于任意不为null的引用值x，x.equals(x)一定是true。</li>
+<li>对称性（symmetric）。对于任意不为null的引用值x和y，当且仅当x.equals(y)是true时，y.equals(x)也是true。</li>
+<li>传递性（transitive）。对于任意不为null的引用值x、y和z，如果x.equals(y)是true，同时y.equals(z)是true，那么x.equals(z)一定是true。</li>
+<li>一致性（consistent）。对于任意不为null的引用值x和y，如果用于equals比较的对象信息没有被修改的话，多次调用时x.equals(y)要么一致地返回true要么一致地返回false。</li>
+<li>对于任意不为null的引用值x，x.equals(null)返回false。</li>
+</ul>
+<p>对于Object类来说，equals()方法在对象上实现的是差别可能性最大的等价关系，即，对于任意非null的引用值x和y，当且仅当x和y引用的是同一个对象，该方法才会返回true。<br>需要注意的是当equals()方法被override时，hashCode()也要被override。按照一般hashCode()方法的实现来说，相等的对象，它们的hash code一定相等。</p>
+<hr>
+<p>###<strong>2. 总结</strong></p>
+<ol>
+<li><p>在Object类中，未覆盖的hashcode（）方法产生的hashcode, 可标识该对象在hash表中位置。</p>
+</li>
+<li><p>由于hash表可能会产生hash冲突，所以hashCode相同的对象不一等相等。</p>
+</li>
+<li><p>在Object类中，未覆盖的equals方法，使用“==”进行比较的，比较的是两个对象的地址是否相同。</p>
+</li>
+<li><p>如果两个对象equals比较为真，即两个对象相等，则两个对象的hashcode一定相同；反过来，两个对象的hashcode相同，不代表两个对象相同（有可能hash冲突），equals比较不一定为真</p>
+</li>
+<li><p>在hashset 或者hashMap中，新加入一个对象的时候，它会使用对象的HashCode()值来判断对象加入的位置，但同时也会与其他的已经加入的对象的HashCode作对比，如果没有相符的hashcode，Hahset或者HashMap就会假设新对象没有重复出现。如果HashCode（）相同，接下来才会比较两个对象是否真正相同。<br>采用这种先比较hashcode才比较是否相等的方式，可以极大地提高hashset，hashmap查找插入的效率。（时间复杂度为O(1)）</p>
+</li>
+</ol>
+<hr>
+<p>###<strong>3.覆盖Object类的hashCode()和equals（）方法</strong><br>我们可以根据自己的需要来覆盖Object类中的hashCode()和equals（）方法。<br>例如String中的hashcode（）和equals（）方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/** </span></span><br><span class="line"><span class="comment">    * Returns a hash code for this string. The hash code for a </span></span><br><span class="line"><span class="comment">    * &lt;code&gt;String&lt;/code&gt; object is computed as </span></span><br><span class="line"><span class="comment">    * &lt;blockquote&gt;&lt;pre&gt; </span></span><br><span class="line"><span class="comment">    * s[0]*31^(n-1) + s[1]*31^(n-2) + ... + s[n-1] </span></span><br><span class="line"><span class="comment">    * &lt;/pre&gt;&lt;/blockquote&gt; </span></span><br><span class="line"><span class="comment">    * using &lt;code&gt;int&lt;/code&gt; arithmetic, where &lt;code&gt;s[i]&lt;/code&gt; is the </span></span><br><span class="line"><span class="comment">    * &lt;i&gt;i&lt;/i&gt;th character of the string, &lt;code&gt;n&lt;/code&gt; is the length of </span></span><br><span class="line"><span class="comment">    * the string, and &lt;code&gt;^&lt;/code&gt; indicates exponentiation. </span></span><br><span class="line"><span class="comment">    * (The hash value of the empty string is zero.) </span></span><br><span class="line"><span class="comment">    * </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span>  a hash code value for this object. </span></span><br><span class="line"><span class="comment">    */</span>  </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;  </span><br><span class="line"><span class="keyword">int</span> h = hash;  </span><br><span class="line">       <span class="keyword">int</span> len = count;  </span><br><span class="line"><span class="keyword">if</span> (h == <span class="number">0</span> &amp;&amp; len &gt; <span class="number">0</span>) &#123;  </span><br><span class="line">    <span class="keyword">int</span> off = offset;  </span><br><span class="line">    <span class="keyword">char</span> val[] = value;  </span><br><span class="line">  </span><br><span class="line">           <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;  </span><br><span class="line">               h = <span class="number">31</span>*h + val[off++];  </span><br><span class="line">           &#125;  </span><br><span class="line">           hash = h;  </span><br><span class="line">       &#125;  </span><br><span class="line">       <span class="keyword">return</span> h;  </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/** </span></span><br><span class="line"><span class="comment">    * Compares this string to the specified object.  The result is &#123;<span class="doctag">@code</span> </span></span><br><span class="line"><span class="comment">    * true&#125; if and only if the argument is not &#123;<span class="doctag">@code</span> null&#125; and is a &#123;<span class="doctag">@code</span> </span></span><br><span class="line"><span class="comment">    * String&#125; object that represents the same sequence of characters as this </span></span><br><span class="line"><span class="comment">    * object. </span></span><br><span class="line"><span class="comment">    * </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span>  anObject </span></span><br><span class="line"><span class="comment">    *         The object to compare this &#123;<span class="doctag">@code</span> String&#125; against </span></span><br><span class="line"><span class="comment">    * </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span>  &#123;<span class="doctag">@code</span> true&#125; if the given object represents a &#123;<span class="doctag">@code</span> String&#125; </span></span><br><span class="line"><span class="comment">    *          equivalent to this string, &#123;<span class="doctag">@code</span> false&#125; otherwise </span></span><br><span class="line"><span class="comment">    * </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@see</span>  #compareTo(String) </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@see</span>  #equalsIgnoreCase(String) </span></span><br><span class="line"><span class="comment">    */</span>  </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object anObject)</span> </span>&#123;  </span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">this</span> == anObject) &#123;  </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">if</span> (anObject <span class="keyword">instanceof</span> String) &#123;  </span><br><span class="line">    String anotherString = (String)anObject;  </span><br><span class="line">    <span class="keyword">int</span> n = count;  </span><br><span class="line">    <span class="keyword">if</span> (n == anotherString.count) &#123;  </span><br><span class="line">    <span class="keyword">char</span> v1[] = value;  </span><br><span class="line">    <span class="keyword">char</span> v2[] = anotherString.value;  </span><br><span class="line">    <span class="keyword">int</span> i = offset;  </span><br><span class="line">    <span class="keyword">int</span> j = anotherString.offset;  </span><br><span class="line">    <span class="keyword">while</span> (n-- != <span class="number">0</span>) &#123;  </span><br><span class="line">        <span class="keyword">if</span> (v1[i++] != v2[j++])  </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">return</span> <span class="keyword">false</span>;  </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>###<strong>4. 参考资料</strong></p>
+<ol>
+<li><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html#hashCode()" target="_blank" rel="noopener">https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html#hashCode()</a></li>
+<li><a href="http://www.cnblogs.com/Qian123/p/5703507.html" target="_blank" rel="noopener">http://www.cnblogs.com/Qian123/p/5703507.html</a></li>
+</ol>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/12/jvm内存区域/" itemprop="url">
-              
-                <span itemprop="name">java虚拟机运行时内存区域</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-12T10:24:19+08:00" content="2018-12-12">
-          12-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Li Jinzhong
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2017/09/25/hashCodeAndEquals/" title="Java 中hashCode()和equals()方法">http://yoursite.com/2017/09/25/hashCodeAndEquals/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/23/ConcurrentModificationException/" rel="next" title="ConcurrentModificationException和fail-fast机制">
+                <i class="fa fa-chevron-left"></i> ConcurrentModificationException和fail-fast机制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/07/JavaInteger/" rel="prev" title="Java 中的Integer Pool 和 autoboxing-same-value-to-different-objects问题">
+                Java 中的Integer Pool 和 autoboxing-same-value-to-different-objects问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -477,6 +542,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -711,6 +780,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

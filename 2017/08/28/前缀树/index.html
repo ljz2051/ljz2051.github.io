@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="算法,数据结构,">
 
 
 
@@ -88,17 +88,20 @@
 
 
 
-<meta name="description" content="If you want something, just fight for it !">
-<meta name="keywords" content="lijinzhong ljz">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ljz-blog">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+<meta name="description" content="##1. 什么是Trie?  Trie，又称前缀树或字典树，是一种有序树，用于保存关联数组，其中的键通常是字符串。与二叉查找树不同，键不是直接保存在节点中，而是由节点在树中的位置决定。一个节点的所有子孙都有相同的前缀，也就是这个节点对应的字符串，而根节点对应空字符串。一般情况下，不是所有的节点都有对应的值，只有叶子节点和部分内部节点所对应的键才有相关的值。Trie可以看作是一个确定有限状态自动机，">
+<meta name="keywords" content="算法,数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Trie(Prefix Tree)前缀树">
+<meta property="og:url" content="http://yoursite.com/2017/08/28/前缀树/index.html">
 <meta property="og:site_name" content="ljz-blog">
-<meta property="og:description" content="If you want something, just fight for it !">
+<meta property="og:description" content="##1. 什么是Trie?  Trie，又称前缀树或字典树，是一种有序树，用于保存关联数组，其中的键通常是字符串。与二叉查找树不同，键不是直接保存在节点中，而是由节点在树中的位置决定。一个节点的所有子孙都有相同的前缀，也就是这个节点对应的字符串，而根节点对应空字符串。一般情况下，不是所有的节点都有对应的值，只有叶子节点和部分内部节点所对应的键才有相关的值。Trie可以看作是一个确定有限状态自动机，">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.blog.csdn.net/20170828145016686?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbDk0NzA2OTk2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2019-03-01T02:00:02.359Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ljz-blog">
-<meta name="twitter:description" content="If you want something, just fight for it !">
+<meta name="twitter:title" content="Trie(Prefix Tree)前缀树">
+<meta name="twitter:description" content="##1. 什么是Trie?  Trie，又称前缀树或字典树，是一种有序树，用于保存关联数组，其中的键通常是字符串。与二叉查找树不同，键不是直接保存在节点中，而是由节点在树中的位置决定。一个节点的所有子孙都有相同的前缀，也就是这个节点对应的字符串，而根节点对应空字符串。一般情况下，不是所有的节点都有对应的值，只有叶子节点和部分内部节点所对应的键才有相关的值。Trie可以看作是一个确定有限状态自动机，">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170828145016686?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbDk0NzA2OTk2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
 
@@ -128,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2018/">
+  <link rel="canonical" href="http://yoursite.com/2017/08/28/前缀树/">
 
 
 
 
 
-  <title>归档 | ljz-blog</title>
+  <title>Trie(Prefix Tree)前缀树 | ljz-blog</title>
   
 
 
@@ -153,7 +156,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -299,177 +302,248 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/28/前缀树/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Jinzhong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ljz-blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Trie(Prefix Tree)前缀树</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-28T17:03:11+08:00">
+                2017-08-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 11 篇日志。 继续努力。
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/14/backtracking/" itemprop="url">
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">回溯算法（Backtracking）</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.4k
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-14T15:12:12+08:00" content="2018-12-14">
-          12-14
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/13/dfsandbfs/" itemprop="url">
-              
-                <span itemprop="name">二叉树DFS和BFS 递归/非递归方式</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-13T09:35:23+08:00" content="2018-12-13">
-          12-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/12/jvm中的对象/" itemprop="url">
-              
-                <span itemprop="name">Java堆上的对象</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-12T15:42:53+08:00" content="2018-12-12">
-          12-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>##<strong>1. 什么是Trie?</strong></p>
+<hr>
+<p>Trie，又称前缀树或字典树，是一种有序树，用于保存关联数组，其中的键通常是字符串。与二叉查找树不同，键不是直接保存在节点中，而是由节点在树中的位置决定。一个节点的所有子孙都有相同的前缀，也就是这个节点对应的字符串，而根节点对应空字符串。一般情况下，不是所有的节点都有对应的值，只有叶子节点和部分内部节点所对应的键才有相关的值。<br>Trie可以看作是一个确定有限状态自动机，尽管边上的符号一般是隐含在分支的顺序中的。<br><a id="more"></a><br><img src="http://img.blog.csdn.net/20170828145016686?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbDk0NzA2OTk2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<hr>
+<p>##<strong>2. Trie的应用</strong></p>
+<hr>
+<p>(1) 自动补全<br>例如,你在百度搜索的输入框中,输入一个单词的前半部分,它能够自动补全出可能的单词结果。<br>(2) 拼写检查<br>例如,在word中输入一个拼写错误的单词, 它能够自动检测出来。<br>(3) IP路由表<br>在IP路由表中进行路由匹配时, 要按照最长匹配前缀的原则进行匹配。<br>(4) T9预测文本<br>在大多手机输入法中, 都会用9格的那种输入法. 这个输入法能够根据用户在9格上的输入,自动匹配出可能的单词。<br>(5) 填单词游戏<br>相信大多数人都玩过那种在横竖的格子里填单词的游戏。</p>
+<hr>
+<p>##<strong>3. Trie的相关操作</strong></p>
+<hr>
+<p>###<strong>(1)Trie的结点结构</strong></p>
+<ul>
+<li>根结点一般为空</li>
+<li>每个结点最多有R个孩子,每个孩子分别对应字母表数据集中的一个字母(通常情况下,R为26,字母表为26个英文字母 ).</li>
+<li>每个结点都有一个boolean类型的域, 代表这个结点是否是一个key的末尾.<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TrieNode</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// R links to node children</span></span><br><span class="line">    <span class="keyword">private</span> TrieNode[] links;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> R = <span class="number">26</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> isEnd;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TrieNode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        links = <span class="keyword">new</span> TrieNode[R];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">containsKey</span><span class="params">(<span class="keyword">char</span> ch)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> links[ch -<span class="string">'a'</span>] != <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TrieNode <span class="title">get</span><span class="params">(<span class="keyword">char</span> ch)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> links[ch -<span class="string">'a'</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(<span class="keyword">char</span> ch, TrieNode node)</span> </span>&#123;</span><br><span class="line">        links[ch -<span class="string">'a'</span>] = node;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setEnd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        isEnd = <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEnd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> isEnd;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>###<strong>(2) 向trie中插入一个关键字</strong><br>基本思想:<br>从根结点开始, 向下依次寻找当前结点的link中, 是否有与关键字key中相应位置的字母相同的link;</p>
+<ul>
+<li>如果有:沿着该link到下一层继续寻找;</li>
+<li>如果没有: 则新建一个node, 插入当前结点的link中,然后沿link到下一层继续寻找；</li>
+</ul>
+<p>向下遍历到key的末尾时, 修改该结点的boolean指示值,表示是关键字末尾.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Trie</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> TrieNode root;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Trie</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        root = <span class="keyword">new</span> TrieNode();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Inserts a word into the trie.</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(String word)</span> </span>&#123;</span><br><span class="line">        TrieNode node = root;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; word.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">char</span> currentChar = word.charAt(i);</span><br><span class="line">            <span class="keyword">if</span> (!node.containsKey(currentChar)) &#123;</span><br><span class="line">                node.put(currentChar, <span class="keyword">new</span> TrieNode());</span><br><span class="line">            &#125;</span><br><span class="line">            node = node.get(currentChar);</span><br><span class="line">        &#125;</span><br><span class="line">        node.setEnd();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>时间复杂度O(m), m是关键字字符串的长度; 空间复杂度也为O(m), m是关键字字符串的长度.</p>
+<p>###<strong>(3) 在trie中查找一个关键字</strong><br>基本思想:<br>从根结点开始, 根据关键字中的字母,沿着不同的link向下搜寻, 依次比较当前节点的link中是否有和关键字相应字母相同的link.</p>
+<ul>
+<li>如果有,则继续到下一层搜寻</li>
+<li>如果没有, 说明已经到一个单词的末尾. 此时看关键字是否遍历到了末尾,如果到了末尾的话, 说明匹配成功; 如果没有到末尾,说明只匹配到了关键字的一个前缀,匹配失败.<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Trie</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="comment">// search a prefix or whole key in trie and</span></span><br><span class="line">    <span class="comment">// returns the node where search ends</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> TrieNode <span class="title">searchPrefix</span><span class="params">(String word)</span> </span>&#123;</span><br><span class="line">        TrieNode node = root;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; word.length(); i++) &#123;</span><br><span class="line">           <span class="keyword">char</span> curLetter = word.charAt(i);</span><br><span class="line">           <span class="keyword">if</span> (node.containsKey(curLetter)) &#123;</span><br><span class="line">               node = node.get(curLetter);</span><br><span class="line">           &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">               <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">           &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> node;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Returns if the word is in the trie.</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">search</span><span class="params">(String word)</span> </span>&#123;</span><br><span class="line">       TrieNode node = searchPrefix(word);</span><br><span class="line">       <span class="keyword">return</span> node != <span class="keyword">null</span> &amp;&amp; node.isEnd();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>时间复杂度O(m), m是关键字字符串长度；空间复杂度O(1).</p>
+<p>###<strong>(4) 在trie中查找一个关键字是否是前缀</strong><br>这个操作和(3)在trie中查找一个关键字很相似, 不同的是, 这里的关键字不必是某个单词的末尾, 只需是前缀即可.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Trie</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Returns if there is any word in the trie</span></span><br><span class="line">    <span class="comment">// that starts with the given prefix.</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">startsWith</span><span class="params">(String prefix)</span> </span>&#123;</span><br><span class="line">        TrieNode node = searchPrefix(prefix);</span><br><span class="line">        <span class="keyword">return</span> node != <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>时间复杂度O(m), m是关键字字符串长度；空间复杂度O(1).</p>
+<hr>
+<p>##<strong>4. Trie的优点</strong></p>
+<hr>
+<p>还有其他几种数据结构，如平衡树和哈希表，它们可以在字符串数据集中搜索一个单词。那为什么我们还需要trie？<br>虽然哈希表在查找某个关键字时有O（1）的时间复杂度，但以下操作效率不高：</p>
+<ul>
+<li>用共同的前缀查找所有的键。</li>
+<li>以字典顺序列举字符串数据集。</li>
+</ul>
+<p>trie优于哈希表的另一个原因是，随着哈希表的大小增加，会有很多哈希冲突，搜索时间复杂度可能会恶化到 O（n），其中n是插入的f关键字的数量。当存储具有相同前缀的多个关键字时，Trie可以使用比哈希表少的空间。在这种情况下，使用trie只有O（m）时间复杂度，其中m是关键字长度。而在平衡树中查找关键字的时间复杂度为 O（mlogn）。</p>
+<p>参考资料:</p>
+<ol>
+<li><a href="https://en.wikipedia.org/wiki/Trie" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Trie</a></li>
+<li><a href="https://leetcode.com/articles/implement-trie-prefix-tree/" target="_blank" rel="noopener">https://leetcode.com/articles/implement-trie-prefix-tree/</a></li>
+</ol>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/12/jvm内存区域/" itemprop="url">
-              
-                <span itemprop="name">java虚拟机运行时内存区域</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-12T10:24:19+08:00" content="2018-12-12">
-          12-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Li Jinzhong
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2017/08/28/前缀树/" title="Trie(Prefix Tree)前缀树">http://yoursite.com/2017/08/28/前缀树/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/15/二分查找/" rel="next" title="二分查找">
+                <i class="fa fa-chevron-left"></i> 二分查找
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/01/Floyd判圈算法/" rel="prev" title="Floyd's Cycle Detection Algorithm（Floyd判圈算法）">
+                Floyd's Cycle Detection Algorithm（Floyd判圈算法） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -477,6 +551,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -711,6 +789,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
