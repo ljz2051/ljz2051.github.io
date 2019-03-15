@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="java,">
+  <meta name="keywords" content="jvm,Java,">
 
 
 
@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="##1. 遇到问题昨天刷题的时候遇到一个很有趣的整数比较的问题, 整理如下：（1）123int i = 127;int j = 127;System.out.println(i == j); 123   int i = 128;int j = 128;System.out.println(i == j); 这两个输出应该都是true，没有问题。">
-<meta name="keywords" content="java">
+<meta name="description" content="ClassLoader的主要职责是负责加载各种class文件到JVM中，并且在JVM中生成构成这个类的各个数据结构，然后时期分布在JVM的对应内存区域中。   类的加载过程一般分为加载阶段、连接阶段和初始化阶段。 1.加载阶段主要负责查找并且加载类的二进制数据文件（class文件）;然后将该字节流所代表的静态存储结构转换为方法区中运行时的数据结构，并且在堆内存中生成一个该类的java.lang.">
+<meta name="keywords" content="jvm,Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java 中的Integer Pool 和 autoboxing-same-value-to-different-objects问题">
-<meta property="og:url" content="http://yoursite.com/2017/11/07/JavaInteger/index.html">
+<meta property="og:title" content="Java中类的加载过程">
+<meta property="og:url" content="http://yoursite.com/2018/03/14/Java中类的加载过程/index.html">
 <meta property="og:site_name" content="ljz-blog">
-<meta property="og:description" content="##1. 遇到问题昨天刷题的时候遇到一个很有趣的整数比较的问题, 整理如下：（1）123int i = 127;int j = 127;System.out.println(i == j); 123   int i = 128;int j = 128;System.out.println(i == j); 这两个输出应该都是true，没有问题。">
+<meta property="og:description" content="ClassLoader的主要职责是负责加载各种class文件到JVM中，并且在JVM中生成构成这个类的各个数据结构，然后时期分布在JVM的对应内存区域中。   类的加载过程一般分为加载阶段、连接阶段和初始化阶段。 1.加载阶段主要负责查找并且加载类的二进制数据文件（class文件）;然后将该字节流所代表的静态存储结构转换为方法区中运行时的数据结构，并且在堆内存中生成一个该类的java.lang.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-01T02:08:30.413Z">
+<meta property="og:updated_time" content="2019-03-15T07:38:22.001Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java 中的Integer Pool 和 autoboxing-same-value-to-different-objects问题">
-<meta name="twitter:description" content="##1. 遇到问题昨天刷题的时候遇到一个很有趣的整数比较的问题, 整理如下：（1）123int i = 127;int j = 127;System.out.println(i == j); 123   int i = 128;int j = 128;System.out.println(i == j); 这两个输出应该都是true，没有问题。">
+<meta name="twitter:title" content="Java中类的加载过程">
+<meta name="twitter:description" content="ClassLoader的主要职责是负责加载各种class文件到JVM中，并且在JVM中生成构成这个类的各个数据结构，然后时期分布在JVM的对应内存区域中。   类的加载过程一般分为加载阶段、连接阶段和初始化阶段。 1.加载阶段主要负责查找并且加载类的二进制数据文件（class文件）;然后将该字节流所代表的静态存储结构转换为方法区中运行时的数据结构，并且在堆内存中生成一个该类的java.lang.">
 
 
 
@@ -129,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/07/JavaInteger/">
+  <link rel="canonical" href="http://yoursite.com/2018/03/14/Java中类的加载过程/">
 
 
 
 
 
-  <title>Java 中的Integer Pool 和 autoboxing-same-value-to-different-objects问题 | ljz-blog</title>
+  <title>Java中类的加载过程 | ljz-blog</title>
   
 
 
@@ -282,7 +282,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/07/JavaInteger/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/14/Java中类的加载过程/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Li Jinzhong">
@@ -299,7 +299,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java 中的Integer Pool 和 autoboxing-same-value-to-different-objects问题</h1>
+          <h1 class="post-title" itemprop="name headline">Java中类的加载过程</h1>
         
 
         <div class="post-meta">
@@ -311,8 +311,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-07T10:06:48+08:00">
-                2017-11-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-14T20:25:51+08:00">
+                2018-03-14
               </time>
             
 
@@ -343,7 +343,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  909
+                  547
                 </span>
               
 
@@ -359,7 +359,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  1
                 </span>
               
             </div>
@@ -380,25 +380,13 @@
       
 
       
-        <p>##1. <strong>遇到问题</strong><br>昨天刷题的时候遇到一个很有趣的整数比较的问题, 整理如下：<br>（1）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">127</span>;</span><br><span class="line"><span class="keyword">int</span> j = <span class="number">127</span>;</span><br><span class="line">System.out.println(i == j);</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">int</span> i = <span class="number">128</span>;</span><br><span class="line"><span class="keyword">int</span> j = <span class="number">128</span>;</span><br><span class="line">System.out.println(i == j);</span><br></pre></td></tr></table></figure>
-<p>这两个输出应该都是true，没有问题。<br><a id="more"></a><br>（2）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   Integer i = <span class="number">127</span>;</span><br><span class="line">Integer j = <span class="number">127</span>;</span><br><span class="line">System.out.println(i == j);</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   Integer i = <span class="number">128</span>;</span><br><span class="line">Integer j = <span class="number">128</span>;</span><br><span class="line">System.out.println(i == j);</span><br></pre></td></tr></table></figure>
-<p>第一个输出的是true, 第二个输出的是false, 这里就比较有意思了，哈哈~<br>（3）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   Integer i = <span class="keyword">new</span> Integer(<span class="number">127</span>);</span><br><span class="line">Integer j = <span class="keyword">new</span> Integer(<span class="number">127</span>);</span><br><span class="line">System.out.println(i == j);</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   Integer i = <span class="keyword">new</span> Integer(<span class="number">128</span>);</span><br><span class="line">Integer j = <span class="keyword">new</span> Integer(<span class="number">128</span>);</span><br><span class="line">System.out.println(i == j);</span><br></pre></td></tr></table></figure>
-<p>这两个输出的都是false, emmmmmmmmmm, 是不是有点懵圈。。。。。</p>
-<hr>
-<p>##<strong>2. 解决问题</strong><br>首先，应该知道java中的自动装箱和自动拆箱机制。简而言之，就是在Java中，jvm会自动实现基本数据类型和与之相对应的类的之间的自动转换。例如int和Integer之间能够自由的转换。</p>
-<p>其次，应该明白对象之间用“==”比较，比较的是内存中的对象是否一样（可以理解为地址是否一样）。</p>
-<p>然后，对于第一种情况，两个int之间的比较，比较的是数值，符合我们的常规认识。 对于第二种情况，127之间的比较返回true, 128之间的比较返回false，是因为jvm中包含一个整数池（pool of Integer values ） ，这个Integer Pool只包含-128 - 127。所以当创建一个-128到127之间的Integer时，会自动引用池中的对象，故127之间的比较返回true，而创建小于-128或大于127的Integer时，则会另外单独创建，所有两个128是不同的对象，他们之间的比较自然返回false。对于第三种情况，采用 new关键字创建整数对象时，会在内存中创建不同的对象，所以这种情况下，不管value大小，他们之间的比较必然返回false。</p>
-<hr>
-<p>##<strong>3.总结</strong><br>（1）整数之间直接用“==”比较大小，可能会出现autoboxing-same-value-to-different-objects问题；<br>（2）int之间用”==”比较，比较的是二者值是否相同；<br>（3）jvm中有一个Integer Pool，包含-128 - 127之间的整数对象。当采用直接赋值的方法创建Integer时，能用池中对象直接表示的，会继续引用池中的对象，超出范围的才会创建新的对象（这也是jvm节省内存空间的一种策略）；<br>（4）采用new关键字创建Integer对象时，会创建新的对象，而不是引用整数池中的对象。</p>
-<hr>
-<p>##<strong>4. Objects.equals()方法</strong><br>尝试了一下，不用“==”进行上述的比较，而用Objects.equals()方法进行上述的比较。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">int</span> i1 = <span class="number">127</span>;</span><br><span class="line"><span class="keyword">int</span> j1 = <span class="number">127</span>;</span><br><span class="line">System.out.println(Objects.equals(i1, j1));</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> i2 = <span class="number">128</span>;</span><br><span class="line"><span class="keyword">int</span> j2 = <span class="number">128</span>;</span><br><span class="line">System.out.println(Objects.equals(i2, j2));</span><br><span class="line"></span><br><span class="line">Integer i3 = <span class="number">127</span>;</span><br><span class="line">Integer j3 = <span class="number">127</span>;</span><br><span class="line">System.out.println(Objects.equals(i3, j3));</span><br><span class="line"></span><br><span class="line">Integer i4 = <span class="number">128</span>;</span><br><span class="line">Integer j4 = <span class="number">128</span>;</span><br><span class="line">System.out.println(Objects.equals(i4, j4));</span><br><span class="line"></span><br><span class="line">Integer i5 = <span class="keyword">new</span> Integer(<span class="number">127</span>);</span><br><span class="line">Integer j5 = <span class="keyword">new</span> Integer(<span class="number">127</span>);</span><br><span class="line">System.out.println(Objects.equals(i5, j5));</span><br><span class="line"></span><br><span class="line">Integer i6 = <span class="keyword">new</span> Integer(<span class="number">128</span>);</span><br><span class="line">Integer j6 = <span class="keyword">new</span> Integer(<span class="number">128</span>);</span><br><span class="line">System.out.println(Objects.equals(i6, j6));</span><br></pre></td></tr></table></figure></p>
-<p>上述结果输出的都是true， 如何理解呢？emmmmmmmmm……….<br>先看Objects.equals方法的说明:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Returns true if the arguments are equal to each other and false otherwise. Consequently, if both arguments are null, true is returned and if exactly one argument is null, false is returned. Otherwise, equality is determined by using the equals method of the first argument.</span><br></pre></td></tr></table></figure></p>
-<p>所以这个方法会调用第一个参数的equals方法，上述例子中也就是调用Integer的equals方法。而Integer的equals方法比较的是两个整数的int value值是否相同，故返回true。</p>
-<hr>
-<p>##<strong>5. 参考资料</strong><br><a href="http://www.devx.com/tips/Tip/42276" target="_blank" rel="noopener">http://www.devx.com/tips/Tip/42276</a></p>
+        <!--# Java中类的加载过程-->
+<p>ClassLoader的主要职责是负责加载各种class文件到JVM中，并且在JVM中生成构成这个类的各个数据结构，然后时期分布在JVM的对应内存区域中。  </p>
+<p>类的加载过程一般分为加载阶段、连接阶段和初始化阶段。</p>
+<h2 id="1-加载阶段"><a href="#1-加载阶段" class="headerlink" title="1.加载阶段"></a>1.加载阶段</h2><p>主要负责查找并且加载类的二进制数据文件（class文件）;<br>然后将该字节流所代表的静态存储结构转换为<strong>方法区</strong>中运行时的数据结构，并且在堆内存中生成一个该类的java.lang.Class对象，作为访问方法区数据结构的入口。<br>类加载的最终产物就是堆内存中的class对象<br><a id="more"></a></p>
+<h2 id="2-连接阶段"><a href="#2-连接阶段" class="headerlink" title="2.连接阶段"></a>2.连接阶段</h2><p>（1）验证<br>确保类文件的正确性，例如class版本、魔数是否正确<br>（2）准备<br>为类的静态变量分配内存，并且为其初始化默认值。<br>类变量的内存会被分配到方法区中；<br>（3）解析<br>把类中的符合引用转换为直接引用。<br>解析过程主要针对类接口、字段、类方法和接口方法这四类中进行。</p>
+<h2 id="3-初始化阶段"><a href="#3-初始化阶段" class="headerlink" title="3. 初始化阶段"></a>3. 初始化阶段</h2><p>为类的静态变量赋予正确的初始值（代码编写阶段给定的值）,即执行<clinit>方法；<br>静态语句块只能对后面的静态变量进行赋值，但是不能对其进行访问；JVM保证了<clinit>方法在多线程的执行环境下的同步语义；</clinit></clinit></p>
+<h2 id="4-注意事项"><a href="#4-注意事项" class="headerlink" title="4.注意事项"></a>4.注意事项</h2><p>（1）JVM对类的初始化是一个延迟的机制（lazy的方式），当一个类在<strong>首次</strong>（主动）使用的时候才会被初始化。<br>（2）通过子类使用父类的静态变量只会导致父类的初始化，子类则不会被初始化。<br>（3）类的被动使用，不会导致类的加载和初始化。例如，构造某个类的数组时并不会导致该类的初始化（仅仅在堆内存开辟了一段连续的地址空间）<br>（4）引用类的静态常量不会导致类的初始化，例如<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> MAX = <span class="number">50</span>;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -419,7 +407,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2017/11/07/JavaInteger/" title="Java 中的Integer Pool 和 autoboxing-same-value-to-different-objects问题">http://yoursite.com/2017/11/07/JavaInteger/</a>
+    <a href="http://yoursite.com/2018/03/14/Java中类的加载过程/" title="Java中类的加载过程">http://yoursite.com/2018/03/14/Java中类的加载过程/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -434,7 +422,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag"># java</a>
+            <a href="/tags/jvm/" rel="tag"># jvm</a>
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
           
         </div>
       
@@ -447,8 +437,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/25/hashCodeAndEquals/" rel="next" title="Java 中hashCode()和equals()方法">
-                <i class="fa fa-chevron-left"></i> Java 中hashCode()和equals()方法
+              <a href="/2017/11/07/JavaInteger/" rel="next" title="Java 中的Integer Pool 和 autoboxing-same-value-to-different-objects问题">
+                <i class="fa fa-chevron-left"></i> Java 中的Integer Pool 和 autoboxing-same-value-to-different-objects问题
               </a>
             
           </div>
@@ -457,8 +447,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/14/Java中类的加载过程/" rel="prev" title="Java中类的加载过程">
-                Java中类的加载过程 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/15/JVM类加载器/" rel="prev" title="JVM类加载器">
+                JVM类加载器 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -511,8 +501,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -576,6 +575,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-加载阶段"><span class="nav-number">1.</span> <span class="nav-text">1.加载阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-连接阶段"><span class="nav-number">2.</span> <span class="nav-text">2.连接阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-初始化阶段"><span class="nav-number">3.</span> <span class="nav-text">3. 初始化阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-注意事项"><span class="nav-number">4.</span> <span class="nav-text">4.注意事项</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
