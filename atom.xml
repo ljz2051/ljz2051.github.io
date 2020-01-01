@@ -5,9 +5,9 @@
   <subtitle>爱学习、爱音乐、爱生活～</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://ljz2051.github.io/"/>
   <updated>2020-01-01T04:46:36.609Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://ljz2051.github.io/</id>
   
   <author>
     <name>Li Jinzhong</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>2019年度总结</title>
-    <link href="http://yoursite.com/2020/01/01/2019summary/"/>
-    <id>http://yoursite.com/2020/01/01/2019summary/</id>
+    <link href="https://ljz2051.github.io/2020/01/01/2019summary/"/>
+    <id>https://ljz2051.github.io/2020/01/01/2019summary/</id>
     <published>2020-01-01T04:38:00.000Z</published>
     <updated>2020-01-01T04:46:36.609Z</updated>
     
@@ -32,14 +32,14 @@
     </summary>
     
     
-      <category term="阶段总结" scheme="http://yoursite.com/tags/%E9%98%B6%E6%AE%B5%E6%80%BB%E7%BB%93/"/>
+      <category term="阶段总结" scheme="https://ljz2051.github.io/tags/%E9%98%B6%E6%AE%B5%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
   <entry>
     <title>回溯算法（Backtracking）</title>
-    <link href="http://yoursite.com/2018/12/14/backtracking/"/>
-    <id>http://yoursite.com/2018/12/14/backtracking/</id>
+    <link href="https://ljz2051.github.io/2018/12/14/backtracking/"/>
+    <id>https://ljz2051.github.io/2018/12/14/backtracking/</id>
     <published>2018-12-14T07:12:12.000Z</published>
     <updated>2019-03-07T15:22:27.677Z</updated>
     
@@ -53,14 +53,14 @@
     </summary>
     
     
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://ljz2051.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>二叉树DFS和BFS 递归/非递归方式</title>
-    <link href="http://yoursite.com/2018/12/13/dfsandbfs/"/>
-    <id>http://yoursite.com/2018/12/13/dfsandbfs/</id>
+    <link href="https://ljz2051.github.io/2018/12/13/dfsandbfs/"/>
+    <id>https://ljz2051.github.io/2018/12/13/dfsandbfs/</id>
     <published>2018-12-13T01:35:23.000Z</published>
     <updated>2019-03-26T14:14:33.504Z</updated>
     
@@ -74,16 +74,16 @@
     </summary>
     
     
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://ljz2051.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="数据结构" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+      <category term="数据结构" scheme="https://ljz2051.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
   <entry>
     <title>Java堆上的对象</title>
-    <link href="http://yoursite.com/2018/12/12/jvm%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1/"/>
-    <id>http://yoursite.com/2018/12/12/jvm中的对象/</id>
+    <link href="https://ljz2051.github.io/2018/12/12/jvm%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1/"/>
+    <id>https://ljz2051.github.io/2018/12/12/jvm中的对象/</id>
     <published>2018-12-12T07:42:53.000Z</published>
     <updated>2019-02-28T03:17:28.223Z</updated>
     
@@ -98,14 +98,14 @@
     </summary>
     
     
-      <category term="jvm" scheme="http://yoursite.com/tags/jvm/"/>
+      <category term="jvm" scheme="https://ljz2051.github.io/tags/jvm/"/>
     
   </entry>
   
   <entry>
     <title>java虚拟机运行时内存区域</title>
-    <link href="http://yoursite.com/2018/12/12/jvm%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/"/>
-    <id>http://yoursite.com/2018/12/12/jvm内存区域/</id>
+    <link href="https://ljz2051.github.io/2018/12/12/jvm%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/"/>
+    <id>https://ljz2051.github.io/2018/12/12/jvm内存区域/</id>
     <published>2018-12-12T02:24:19.000Z</published>
     <updated>2019-02-28T03:16:39.909Z</updated>
     
@@ -121,14 +121,14 @@
     </summary>
     
     
-      <category term="jvm" scheme="http://yoursite.com/tags/jvm/"/>
+      <category term="jvm" scheme="https://ljz2051.github.io/tags/jvm/"/>
     
   </entry>
   
   <entry>
     <title>树的遍历总结</title>
-    <link href="http://yoursite.com/2018/03/27/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%80%BB%E7%BB%93/"/>
-    <id>http://yoursite.com/2018/03/27/二叉树的遍历总结/</id>
+    <link href="https://ljz2051.github.io/2018/03/27/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%80%BB%E7%BB%93/"/>
+    <id>https://ljz2051.github.io/2018/03/27/二叉树的遍历总结/</id>
     <published>2018-03-27T02:34:18.000Z</published>
     <updated>2020-01-01T04:50:19.022Z</updated>
     
@@ -145,8 +145,8 @@
   
   <entry>
     <title>JVM类加载器</title>
-    <link href="http://yoursite.com/2018/03/15/JVM%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/"/>
-    <id>http://yoursite.com/2018/03/15/JVM类加载器/</id>
+    <link href="https://ljz2051.github.io/2018/03/15/JVM%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/"/>
+    <id>https://ljz2051.github.io/2018/03/15/JVM类加载器/</id>
     <published>2018-03-15T07:37:19.000Z</published>
     <updated>2019-03-15T08:16:37.637Z</updated>
     
@@ -160,16 +160,16 @@
     </summary>
     
     
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+      <category term="java" scheme="https://ljz2051.github.io/tags/java/"/>
     
-      <category term="jvm" scheme="http://yoursite.com/tags/jvm/"/>
+      <category term="jvm" scheme="https://ljz2051.github.io/tags/jvm/"/>
     
   </entry>
   
   <entry>
     <title>Java中类的加载过程</title>
-    <link href="http://yoursite.com/2018/03/14/Java%E4%B8%AD%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/"/>
-    <id>http://yoursite.com/2018/03/14/Java中类的加载过程/</id>
+    <link href="https://ljz2051.github.io/2018/03/14/Java%E4%B8%AD%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/"/>
+    <id>https://ljz2051.github.io/2018/03/14/Java中类的加载过程/</id>
     <published>2018-03-14T12:25:51.000Z</published>
     <updated>2019-03-15T07:38:22.001Z</updated>
     
@@ -185,16 +185,16 @@
     </summary>
     
     
-      <category term="jvm" scheme="http://yoursite.com/tags/jvm/"/>
+      <category term="jvm" scheme="https://ljz2051.github.io/tags/jvm/"/>
     
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+      <category term="Java" scheme="https://ljz2051.github.io/tags/Java/"/>
     
   </entry>
   
   <entry>
     <title>Java 中的Integer Pool 和 autoboxing-same-value-to-different-objects问题</title>
-    <link href="http://yoursite.com/2017/11/07/JavaInteger/"/>
-    <id>http://yoursite.com/2017/11/07/JavaInteger/</id>
+    <link href="https://ljz2051.github.io/2017/11/07/JavaInteger/"/>
+    <id>https://ljz2051.github.io/2017/11/07/JavaInteger/</id>
     <published>2017-11-07T02:06:48.000Z</published>
     <updated>2019-03-01T02:08:30.413Z</updated>
     
@@ -209,14 +209,14 @@
     </summary>
     
     
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+      <category term="java" scheme="https://ljz2051.github.io/tags/java/"/>
     
   </entry>
   
   <entry>
     <title>Java 中hashCode()和equals()方法</title>
-    <link href="http://yoursite.com/2017/09/25/hashCodeAndEquals/"/>
-    <id>http://yoursite.com/2017/09/25/hashCodeAndEquals/</id>
+    <link href="https://ljz2051.github.io/2017/09/25/hashCodeAndEquals/"/>
+    <id>https://ljz2051.github.io/2017/09/25/hashCodeAndEquals/</id>
     <published>2017-09-24T16:46:43.000Z</published>
     <updated>2019-03-01T02:05:06.139Z</updated>
     
@@ -231,14 +231,14 @@
     </summary>
     
     
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+      <category term="java" scheme="https://ljz2051.github.io/tags/java/"/>
     
   </entry>
   
   <entry>
     <title>ConcurrentModificationException和fail-fast机制</title>
-    <link href="http://yoursite.com/2017/09/23/ConcurrentModificationException/"/>
-    <id>http://yoursite.com/2017/09/23/ConcurrentModificationException/</id>
+    <link href="https://ljz2051.github.io/2017/09/23/ConcurrentModificationException/"/>
+    <id>https://ljz2051.github.io/2017/09/23/ConcurrentModificationException/</id>
     <published>2017-09-23T07:09:03.000Z</published>
     <updated>2019-03-01T02:05:23.260Z</updated>
     
@@ -252,14 +252,14 @@
     </summary>
     
     
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+      <category term="java" scheme="https://ljz2051.github.io/tags/java/"/>
     
   </entry>
   
   <entry>
     <title>Floyd&#39;s Cycle Detection Algorithm（Floyd判圈算法）</title>
-    <link href="http://yoursite.com/2017/09/01/Floyd%E5%88%A4%E5%9C%88%E7%AE%97%E6%B3%95/"/>
-    <id>http://yoursite.com/2017/09/01/Floyd判圈算法/</id>
+    <link href="https://ljz2051.github.io/2017/09/01/Floyd%E5%88%A4%E5%9C%88%E7%AE%97%E6%B3%95/"/>
+    <id>https://ljz2051.github.io/2017/09/01/Floyd判圈算法/</id>
     <published>2017-09-01T08:37:08.000Z</published>
     <updated>2019-03-01T01:59:34.458Z</updated>
     
@@ -276,14 +276,14 @@
     </summary>
     
     
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://ljz2051.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>Trie(Prefix Tree)前缀树</title>
-    <link href="http://yoursite.com/2017/08/28/%E5%89%8D%E7%BC%80%E6%A0%91/"/>
-    <id>http://yoursite.com/2017/08/28/前缀树/</id>
+    <link href="https://ljz2051.github.io/2017/08/28/%E5%89%8D%E7%BC%80%E6%A0%91/"/>
+    <id>https://ljz2051.github.io/2017/08/28/前缀树/</id>
     <published>2017-08-28T09:03:11.000Z</published>
     <updated>2019-03-01T02:00:02.359Z</updated>
     
@@ -298,16 +298,16 @@
     </summary>
     
     
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://ljz2051.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="数据结构" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+      <category term="数据结构" scheme="https://ljz2051.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
   <entry>
     <title>二分查找</title>
-    <link href="http://yoursite.com/2017/07/15/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
-    <id>http://yoursite.com/2017/07/15/二分查找/</id>
+    <link href="https://ljz2051.github.io/2017/07/15/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
+    <id>https://ljz2051.github.io/2017/07/15/二分查找/</id>
     <published>2017-07-15T02:49:34.000Z</published>
     <updated>2019-03-01T02:00:23.371Z</updated>
     
@@ -322,14 +322,14 @@
     </summary>
     
     
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://ljz2051.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>Hello World !!!</title>
-    <link href="http://yoursite.com/2017/07/15/hello-world/"/>
-    <id>http://yoursite.com/2017/07/15/hello-world/</id>
+    <link href="https://ljz2051.github.io/2017/07/15/hello-world/"/>
+    <id>https://ljz2051.github.io/2017/07/15/hello-world/</id>
     <published>2017-07-15T00:43:34.000Z</published>
     <updated>2019-03-01T01:48:15.084Z</updated>
     
@@ -344,7 +344,7 @@
     </summary>
     
     
-      <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://ljz2051.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
