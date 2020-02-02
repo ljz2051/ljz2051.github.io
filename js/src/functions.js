@@ -94,15 +94,15 @@ function startHeartAnimation() {
 
 function timeElapse(date){
     var current = Date();
-    var seconds = Math.ceil((Date.parse(current) - Date.parse(date)) / 1000);
-    var days = Math.ceil(seconds / (3600 * 24));
+    var seconds = Math.floor((Date.parse(current) - Date.parse(date)) / 1000);
+    var days = Math.floor(seconds / (3600 * 24));
     seconds = seconds % (3600 * 24);
-    var hours = Math.ceil(seconds / 3600);
+    var hours = Math.floor(seconds / 3600);
     if (hours < 10) {
         hours = "0" + hours;
     }
     seconds = seconds % 3600;
-    var minutes = Math.ceil(seconds / 60);
+    var minutes = Math.floor(seconds / 60);
     if (minutes < 10) {
         minutes = "0" + minutes;
     }
@@ -133,4 +133,4 @@ function adjustCodePosition() {
 
 function showLoveU() {
     $('#loveu').fadeIn(3000);
-}kk
+}
