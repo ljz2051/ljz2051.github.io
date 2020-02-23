@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="java,">
+  <meta name="keywords" content="分布式系统,算法,Flink,">
 
 
 
@@ -88,18 +88,20 @@
 
 
 
-<meta name="description" content="##1. 遇到问题昨天刷题的时候遇到一个很有趣的整数比较的问题, 整理如下：（1）123int i = 127;int j = 127;System.out.println(i == j); 123   int i = 128;int j = 128;System.out.println(i == j); 这两个输出应该都是true，没有问题。">
-<meta name="keywords" content="java">
+<meta name="description" content="1. 分布式系统模型分布式系统可以抽象为由有限的precess集合和有限的channel集合构成，如下图所示。">
+<meta name="keywords" content="分布式系统,算法,Flink">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java 中的Integer Pool 和 autoboxing-same-value-to-different-objects问题">
-<meta property="og:url" content="https://ljz2051.github.io/2017/11/07/JavaInteger/index.html">
+<meta property="og:title" content="Chandy-lamport算法 (分布式快照理论)">
+<meta property="og:url" content="https://ljz2051.github.io/2020/02/23/Chandy-lamport/index.html">
 <meta property="og:site_name" content="ljz-blog">
-<meta property="og:description" content="##1. 遇到问题昨天刷题的时候遇到一个很有趣的整数比较的问题, 整理如下：（1）123int i = 127;int j = 127;System.out.println(i == j); 123   int i = 128;int j = 128;System.out.println(i == j); 这两个输出应该都是true，没有问题。">
+<meta property="og:description" content="1. 分布式系统模型分布式系统可以抽象为由有限的precess集合和有限的channel集合构成，如下图所示。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-01T02:08:30.413Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200223223516743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2w5NDcwNjk5NjI=,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2020-02-23T14:39:02.631Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java 中的Integer Pool 和 autoboxing-same-value-to-different-objects问题">
-<meta name="twitter:description" content="##1. 遇到问题昨天刷题的时候遇到一个很有趣的整数比较的问题, 整理如下：（1）123int i = 127;int j = 127;System.out.println(i == j); 123   int i = 128;int j = 128;System.out.println(i == j); 这两个输出应该都是true，没有问题。">
+<meta name="twitter:title" content="Chandy-lamport算法 (分布式快照理论)">
+<meta name="twitter:description" content="1. 分布式系统模型分布式系统可以抽象为由有限的precess集合和有限的channel集合构成，如下图所示。">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200223223516743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2w5NDcwNjk5NjI=,size_16,color_FFFFFF,t_70">
 
 
 
@@ -129,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="https://ljz2051.github.io/2017/11/07/JavaInteger/">
+  <link rel="canonical" href="https://ljz2051.github.io/2020/02/23/Chandy-lamport/">
 
 
 
 
 
-  <title>Java 中的Integer Pool 和 autoboxing-same-value-to-different-objects问题 | ljz-blog</title>
+  <title>Chandy-lamport算法 (分布式快照理论) | ljz-blog</title>
   
 
 
@@ -282,7 +284,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ljz2051.github.io/2017/11/07/JavaInteger/">
+    <link itemprop="mainEntityOfPage" href="https://ljz2051.github.io/2020/02/23/Chandy-lamport/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Li Jinzhong">
@@ -299,7 +301,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java 中的Integer Pool 和 autoboxing-same-value-to-different-objects问题</h1>
+          <h1 class="post-title" itemprop="name headline">Chandy-lamport算法 (分布式快照理论)</h1>
         
 
         <div class="post-meta">
@@ -311,8 +313,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-07T10:06:48+08:00">
-                2017-11-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-23T21:14:35+08:00">
+                2020-02-23
               </time>
             
 
@@ -343,7 +345,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  909
+                  554
                 </span>
               
 
@@ -359,7 +361,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  2
                 </span>
               
             </div>
@@ -380,25 +382,15 @@
       
 
       
-        <p>##1. <strong>遇到问题</strong><br>昨天刷题的时候遇到一个很有趣的整数比较的问题, 整理如下：<br>（1）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">127</span>;</span><br><span class="line"><span class="keyword">int</span> j = <span class="number">127</span>;</span><br><span class="line">System.out.println(i == j);</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">int</span> i = <span class="number">128</span>;</span><br><span class="line"><span class="keyword">int</span> j = <span class="number">128</span>;</span><br><span class="line">System.out.println(i == j);</span><br></pre></td></tr></table></figure>
-<p>这两个输出应该都是true，没有问题。<br><a id="more"></a><br>（2）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   Integer i = <span class="number">127</span>;</span><br><span class="line">Integer j = <span class="number">127</span>;</span><br><span class="line">System.out.println(i == j);</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   Integer i = <span class="number">128</span>;</span><br><span class="line">Integer j = <span class="number">128</span>;</span><br><span class="line">System.out.println(i == j);</span><br></pre></td></tr></table></figure>
-<p>第一个输出的是true, 第二个输出的是false, 这里就比较有意思了，哈哈~<br>（3）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   Integer i = <span class="keyword">new</span> Integer(<span class="number">127</span>);</span><br><span class="line">Integer j = <span class="keyword">new</span> Integer(<span class="number">127</span>);</span><br><span class="line">System.out.println(i == j);</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   Integer i = <span class="keyword">new</span> Integer(<span class="number">128</span>);</span><br><span class="line">Integer j = <span class="keyword">new</span> Integer(<span class="number">128</span>);</span><br><span class="line">System.out.println(i == j);</span><br></pre></td></tr></table></figure>
-<p>这两个输出的都是false, emmmmmmmmmm, 是不是有点懵圈。。。。。</p>
-<hr>
-<p>##<strong>2. 解决问题</strong><br>首先，应该知道java中的自动装箱和自动拆箱机制。简而言之，就是在Java中，jvm会自动实现基本数据类型和与之相对应的类的之间的自动转换。例如int和Integer之间能够自由的转换。</p>
-<p>其次，应该明白对象之间用“==”比较，比较的是内存中的对象是否一样（可以理解为地址是否一样）。</p>
-<p>然后，对于第一种情况，两个int之间的比较，比较的是数值，符合我们的常规认识。 对于第二种情况，127之间的比较返回true, 128之间的比较返回false，是因为jvm中包含一个整数池（pool of Integer values ） ，这个Integer Pool只包含-128 - 127。所以当创建一个-128到127之间的Integer时，会自动引用池中的对象，故127之间的比较返回true，而创建小于-128或大于127的Integer时，则会另外单独创建，所有两个128是不同的对象，他们之间的比较自然返回false。对于第三种情况，采用 new关键字创建整数对象时，会在内存中创建不同的对象，所以这种情况下，不管value大小，他们之间的比较必然返回false。</p>
-<hr>
-<p>##<strong>3.总结</strong><br>（1）整数之间直接用“==”比较大小，可能会出现autoboxing-same-value-to-different-objects问题；<br>（2）int之间用”==”比较，比较的是二者值是否相同；<br>（3）jvm中有一个Integer Pool，包含-128 - 127之间的整数对象。当采用直接赋值的方法创建Integer时，能用池中对象直接表示的，会继续引用池中的对象，超出范围的才会创建新的对象（这也是jvm节省内存空间的一种策略）；<br>（4）采用new关键字创建Integer对象时，会创建新的对象，而不是引用整数池中的对象。</p>
-<hr>
-<p>##<strong>4. Objects.equals()方法</strong><br>尝试了一下，不用“==”进行上述的比较，而用Objects.equals()方法进行上述的比较。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">int</span> i1 = <span class="number">127</span>;</span><br><span class="line"><span class="keyword">int</span> j1 = <span class="number">127</span>;</span><br><span class="line">System.out.println(Objects.equals(i1, j1));</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> i2 = <span class="number">128</span>;</span><br><span class="line"><span class="keyword">int</span> j2 = <span class="number">128</span>;</span><br><span class="line">System.out.println(Objects.equals(i2, j2));</span><br><span class="line"></span><br><span class="line">Integer i3 = <span class="number">127</span>;</span><br><span class="line">Integer j3 = <span class="number">127</span>;</span><br><span class="line">System.out.println(Objects.equals(i3, j3));</span><br><span class="line"></span><br><span class="line">Integer i4 = <span class="number">128</span>;</span><br><span class="line">Integer j4 = <span class="number">128</span>;</span><br><span class="line">System.out.println(Objects.equals(i4, j4));</span><br><span class="line"></span><br><span class="line">Integer i5 = <span class="keyword">new</span> Integer(<span class="number">127</span>);</span><br><span class="line">Integer j5 = <span class="keyword">new</span> Integer(<span class="number">127</span>);</span><br><span class="line">System.out.println(Objects.equals(i5, j5));</span><br><span class="line"></span><br><span class="line">Integer i6 = <span class="keyword">new</span> Integer(<span class="number">128</span>);</span><br><span class="line">Integer j6 = <span class="keyword">new</span> Integer(<span class="number">128</span>);</span><br><span class="line">System.out.println(Objects.equals(i6, j6));</span><br></pre></td></tr></table></figure></p>
-<p>上述结果输出的都是true， 如何理解呢？emmmmmmmmm……….<br>先看Objects.equals方法的说明:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Returns true if the arguments are equal to each other and false otherwise. Consequently, if both arguments are null, true is returned and if exactly one argument is null, false is returned. Otherwise, equality is determined by using the equals method of the first argument.</span><br></pre></td></tr></table></figure></p>
-<p>所以这个方法会调用第一个参数的equals方法，上述例子中也就是调用Integer的equals方法。而Integer的equals方法比较的是两个整数的int value值是否相同，故返回true。</p>
-<hr>
-<p>##<strong>5. 参考资料</strong><br><a href="http://www.devx.com/tips/Tip/42276" target="_blank" rel="noopener">http://www.devx.com/tips/Tip/42276</a></p>
+        <h1 id="1-分布式系统模型"><a href="#1-分布式系统模型" class="headerlink" title="1. 分布式系统模型"></a>1. 分布式系统模型</h1><p>分布式系统可以抽象为由有限的precess集合和有限的channel集合构成，如下图所示。<br><a id="more"></a><br><img src="https://img-blog.csdnimg.cn/20200223223516743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2w5NDcwNjk5NjI=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>其中, 有向图代表分布式系统，顶点代表process，边代表channel。<br>一个process由一个状态（state）集合、一个初始状态和一个事件（event）集合构成。一个事件（event）e 是一个原子操作，它能够改变process本身的状态，以及最多一个channel的状态（channel收到新的message改变状态，或者channel发送message后改变状态）。</p>
+<p>我们可以用一个五元组$e = &lt;p, s, s’, M, c&gt;$来定义事件event：其中（1）p代表事件event所在的process；（2）s代表事件发生前的状态；（3）s’代表事件发生后的状态；（4）c代表状态改变所在的channel；（5）M代表channel收到或者发送的消息。如果全部channel都没有发生状态改变，则M和c可以为null.</p>
+<h1 id="2-Global-State-Detection算法"><a href="#2-Global-State-Detection算法" class="headerlink" title="2.Global-State-Detection算法"></a>2.Global-State-Detection算法</h1><p>（1）Process p的marker发送规则：对于每一个以p为起点的channel，p会在p记录其状态之后、发送后续的消息之前，发送出一个marker;<br>(2) Process p的marker接收规则：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">当channel c接收到一个marker时:</span><br><span class="line">    if q还没有记录它的状态 then</span><br><span class="line">        begin   q记录它的状态；</span><br><span class="line">                q记录c的状态为empty；</span><br><span class="line">        end</span><br><span class="line">    else</span><br><span class="line">        将q记录状态之后、q收到marker之前，q收到的消息记录为c的状态；</span><br></pre></td></tr></table></figure></p>
+<h1 id="3-全局State的特征"><a href="#3-全局State的特征" class="headerlink" title="3. 全局State的特征"></a>3. 全局State的特征</h1><p>令$seq=(e_i, 0&lt;=i)$表示一个分布式计算，则<br>（1）在seq中的一个事件$e_i$被成为prerecording当且仅当$e_i$在process p中而且p在$e_i$之后记录它的状态；<br>（2）在seq中的一个事件$e_i$被成为postrecording当且仅当$e_i$在process p中而且p在$e_i$之前记录它的状态；</p>
+<p><strong>通过不断地将$seq$中的postrecording和其后面相邻的prerecording交换位置，最终能够得到一个新的seq’,其满足所有的prerecording事件都在postrecording事件之前，这个seq’中prerecording之后、postrecording之前的位置，就是应该记录的全局State</strong></p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ol>
+<li>Chandy M K , Lamport L . Distributed Snapshots: Determining Global States of Distributed Systems[J]. ACM Transactions on Computer Systems, 1985, 3(1):63-75.</li>
+</ol>
 
       
     </div>
@@ -419,7 +411,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://ljz2051.github.io/2017/11/07/JavaInteger/" title="Java 中的Integer Pool 和 autoboxing-same-value-to-different-objects问题">https://ljz2051.github.io/2017/11/07/JavaInteger/</a>
+    <a href="https://ljz2051.github.io/2020/02/23/Chandy-lamport/" title="Chandy-lamport算法 (分布式快照理论)">https://ljz2051.github.io/2020/02/23/Chandy-lamport/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -434,7 +426,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag"># java</a>
+            <a href="/tags/分布式系统/" rel="tag"># 分布式系统</a>
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+            <a href="/tags/Flink/" rel="tag"># Flink</a>
           
         </div>
       
@@ -447,8 +443,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/25/hashCodeAndEquals/" rel="next" title="Java 中hashCode()和equals()方法">
-                <i class="fa fa-chevron-left"></i> Java 中hashCode()和equals()方法
+              <a href="/2020/01/01/2019summary/" rel="next" title="2019年度总结">
+                <i class="fa fa-chevron-left"></i> 2019年度总结
               </a>
             
           </div>
@@ -456,10 +452,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/14/Java中类的加载过程/" rel="prev" title="Java中类的加载过程">
-                Java中类的加载过程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -511,8 +503,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -576,6 +577,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-分布式系统模型"><span class="nav-number">1.</span> <span class="nav-text">1. 分布式系统模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Global-State-Detection算法"><span class="nav-number">2.</span> <span class="nav-text">2.Global-State-Detection算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-全局State的特征"><span class="nav-number">3.</span> <span class="nav-text">3. 全局State的特征</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文献"><span class="nav-number">4.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

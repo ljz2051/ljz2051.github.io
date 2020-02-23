@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ljz2051.github.io/"/>
-  <updated>2020-02-02T10:46:39.369Z</updated>
+  <updated>2020-02-23T14:39:02.631Z</updated>
   <id>https://ljz2051.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Chandy-lamport算法 (分布式快照理论)</title>
+    <link href="https://ljz2051.github.io/2020/02/23/Chandy-lamport/"/>
+    <id>https://ljz2051.github.io/2020/02/23/Chandy-lamport/</id>
+    <published>2020-02-23T13:14:35.000Z</published>
+    <updated>2020-02-23T14:39:02.631Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1-分布式系统模型"><a href="#1-分布式系统模型" class="headerlink" title="1. 分布式系统模型"></a>1. 分布式系统模型</h1><p>分布式系统可以抽象为由有限的precess集合和有限的channel集合构成，如下图所示。<br><a id="more"></a><br><img src="https://img-blog.csdnimg.cn/20200223223516743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2w5NDcwNjk5NjI=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>其中, 有向图代表分布式系统，顶点代表process，边代表channel。<br>一个process由一个状态（state）集合、一个初始状态和一个事件（event）集合构成。一个事件（event）e 是一个原子操作，它能够改变process本身的状态，以及最多一个channel的状态（channel收到新的message改变状态，或者channel发送message后改变状态）。</p><p>我们可以用一个五元组$e = &lt;p, s, s’, M, c&gt;$来定义事件event：其中（1）p代表事件event所在的process；（2）s代表事件发生前的状态；（3）s’代表事件发生后的状态；（4）c代表状态改变所在的channel；（5）M代表channel收到或者发送的消息。如果全部channel都没有发生状态改变，则M和c可以为null.</p><h1 id="2-Global-State-Detection算法"><a href="#2-Global-State-Detection算法" class="headerlink" title="2.Global-State-Detection算法"></a>2.Global-State-Detection算法</h1><p>（1）Process p的marker发送规则：对于每一个以p为起点的channel，p会在p记录其状态之后、发送后续的消息之前，发送出一个marker;<br>(2) Process p的marker接收规则：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">当channel c接收到一个marker时:</span><br><span class="line">    if q还没有记录它的状态 then</span><br><span class="line">        begin   q记录它的状态；</span><br><span class="line">                q记录c的状态为empty；</span><br><span class="line">        end</span><br><span class="line">    else</span><br><span class="line">        将q记录状态之后、q收到marker之前，q收到的消息记录为c的状态；</span><br></pre></td></tr></table></figure></p><h1 id="3-全局State的特征"><a href="#3-全局State的特征" class="headerlink" title="3. 全局State的特征"></a>3. 全局State的特征</h1><p>令$seq=(e_i, 0&lt;=i)$表示一个分布式计算，则<br>（1）在seq中的一个事件$e_i$被成为prerecording当且仅当$e_i$在process p中而且p在$e_i$之后记录它的状态；<br>（2）在seq中的一个事件$e_i$被成为postrecording当且仅当$e_i$在process p中而且p在$e_i$之前记录它的状态；</p><p><strong>通过不断地将$seq$中的postrecording和其后面相邻的prerecording交换位置，最终能够得到一个新的seq’,其满足所有的prerecording事件都在postrecording事件之前，这个seq’中prerecording之后、postrecording之前的位置，就是应该记录的全局State</strong></p><h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ol><li>Chandy M K , Lamport L . Distributed Snapshots: Determining Global States of Distributed Systems[J]. ACM Transactions on Computer Systems, 1985, 3(1):63-75.</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;1-分布式系统模型&quot;&gt;&lt;a href=&quot;#1-分布式系统模型&quot; class=&quot;headerlink&quot; title=&quot;1. 分布式系统模型&quot;&gt;&lt;/a&gt;1. 分布式系统模型&lt;/h1&gt;&lt;p&gt;分布式系统可以抽象为由有限的precess集合和有限的channel集合构成，如下图所示。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="分布式系统" scheme="https://ljz2051.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/"/>
+    
+      <category term="算法" scheme="https://ljz2051.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="Flink" scheme="https://ljz2051.github.io/tags/Flink/"/>
+    
+  </entry>
   
   <entry>
     <title>2019年度总结</title>
